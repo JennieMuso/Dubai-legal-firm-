@@ -83,8 +83,8 @@ h1, h2, h3 { font-weight: 500; letter-spacing: -.055em; line-height: .94; text-w
 .service-sticky p { max-width: 34rem; padding: 2.5rem; font-size: 1.15rem; }
 .service-list { display: grid; gap: 1.25rem; }
 .service-item { position: relative; height: clamp(38rem, 76vh, 48rem); overflow: hidden; background: var(--green); color: var(--white); transform-origin: center top; }
-.service-item::after { content: ''; position: absolute; inset: 0; z-index: 1; background: rgba(2, 30, 23, .56); transition: background .35s ease; }
-.service-item:hover::after { background: rgba(2, 30, 23, .66); }
+.service-item::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(2, 30, 23, 0) 0%, rgba(2, 30, 23, 0) 50%, rgba(2, 30, 23, .72) 78%, rgba(2, 30, 23, .94) 100%); transition: opacity .35s ease; }
+.service-item:hover::after { opacity: .96; }
 .service-image { position: absolute; inset: 0; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
 .service-item:hover .service-image { transform: scale(1.035); }
 .service-number { position: absolute; top: 1.5rem; left: 1.5rem; z-index: 2; color: rgba(255,255,255,.75); font-size: .8rem; letter-spacing: .1em; }
@@ -92,8 +92,10 @@ h1, h2, h3 { font-weight: 500; letter-spacing: -.055em; line-height: .94; text-w
 .service-copy strong { display: block; margin-bottom: 1.25rem; color: rgba(255,255,255,.72); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
 .service-item h3 { max-width: 13ch; font-size: clamp(2.5rem, 4vw, 4rem); }
 .service-copy > p { max-width: 35rem; margin-top: 1.5rem; font-size: clamp(1.02rem, 1.35vw, 1.2rem); }
-.service-link { position: absolute; right: 1.5rem; bottom: 1.5rem; z-index: 3; display: grid; width: 3.5rem; height: 3.5rem; place-items: center; background: var(--white); color: var(--forest); font-size: 1.35rem; transition: transform .25s var(--ease), background .2s ease; }
-.service-link:hover, .service-link:focus-visible { transform: translateY(-3px); background: var(--mint); }
+.service-link { position: absolute; right: 1.5rem; bottom: 1.5rem; z-index: 3; display: grid; width: 3.5rem; height: 3.5rem; place-items: center; background: var(--white); color: var(--forest); font-size: 1.35rem; transition: transform .25s var(--ease); }
+.service-link:hover, .service-link:focus-visible, .service-link:active { background: var(--green); color: var(--white); }
+.service-link:hover, .service-link:focus-visible { transform: translateY(-3px); }
+.service-link:active { transform: translateY(0) scale(.96); }
 .service-copy { padding-right: 6.5rem; }
 
 .process { display: grid; grid-template-columns: 1.08fr .92fr; min-height: 46rem; padding: var(--pad); gap: 1rem; background: #0b0e0d; color: var(--white); }
