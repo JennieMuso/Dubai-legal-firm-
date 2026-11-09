@@ -1,0 +1,24 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { practices } from '../../data/practices';
+import '../../styles/practice.css';
+const description = 'Explore Bayline Legal’s Dubai practice areas: corporate and commercial law, disputes, real estate and construction, and employment and mobility.';
+---
+<InnerLayout title="Practice Areas | Bayline Legal Dubai" description={description} active="practice">
+  <section class="inner-hero practice-hero" aria-labelledby="practice-title">
+    <div class="inner-hero__image"><img src="/images/dubai-office.webp" alt="Modern office interior overlooking Dubai" fetchpriority="high" /></div>
+    <div class="inner-hero__grid"><h1 id="practice-title" data-hero-reveal>Connected counsel for business decisions.</h1><div class="inner-hero__intro" data-hero-reveal><p>From the first agreement to a difficult dispute, we consider the legal question alongside the commercial decision it serves.</p><div class="inner-hero__meta"><span>Business Bay, Dubai</span><span>Four connected practices</span></div></div></div>
+  </section>
+  <section class="inner-section practice-index" aria-labelledby="index-title">
+    <div class="section-heading"><h2 id="index-title" data-text-reveal>Find the right starting point.</h2><p>Choose the area closest to your matter. If more than one applies, we will help map the connections.</p></div>
+    <div class="practice-grid" data-bento>
+      {practices.map((practice, i) => <a class="practice-tile" href={`/practice-areas/${practice.slug}/`}>
+        <img src={practice.image} alt={practice.alt} loading="lazy" /><span class="practice-tile__number">0{i+1}</span>
+        <div class="practice-tile__body"><span>{practice.focus}</span><h3>{practice.title}</h3><p>{practice.short}</p></div><span class="practice-tile__arrow" aria-hidden="true">↗</span>
+      </a>)}
+    </div>
+  </section>
+  <section class="inner-section inner-section--mist practice-cross" aria-labelledby="cross-title"><div class="editorial-split"><h2 id="cross-title" data-text-reveal>One matter may cross several practices.</h2><div class="editorial-copy"><p>A shareholder decision can involve a new contract, an employee transition and a property commitment. A project claim can turn on the original negotiation, the record of changes and the relationship between the parties.</p><p>We start with the whole position, then define the work each issue needs. That gives you one clear sequence of decisions instead of disconnected answers.</p><a class="practice-text-link" href="/how-we-work/">See how we work <span aria-hidden="true">↗</span></a></div></div></section>
+  <ContactCTA title="Bring us the decision." copy="Tell us what you need to achieve, what is already agreed and when you need to move. We will help identify the right legal starting point." />
+</InnerLayout>

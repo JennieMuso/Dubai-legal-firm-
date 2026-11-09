@@ -1,0 +1,22 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { practices } from '../../data/practices';
+import '../../styles/practice.css';
+export function getStaticPaths() { return practices.map((practice) => ({ params: { slug: practice.slug }, props: { practice } })); }
+const { practice } = Astro.props;
+const otherPractices = practices.filter((item) => item.slug !== practice.slug);
+const description = `${practice.intro} Bayline Legal advises on ${practice.title.toLowerCase()} in Dubai.`;
+---
+<InnerLayout title={`${practice.title} Lawyers in Dubai | Bayline Legal`} description={description} active="practice">
+  <section class="inner-hero practice-detail-hero" aria-labelledby="detail-title">
+    <div class="inner-hero__image"><img src={practice.image} alt={practice.alt} fetchpriority="high" /></div>
+    <div class="inner-hero__grid"><div><a class="practice-back" href="/practice-areas/">← All practice areas</a><h1 id="detail-title" data-hero-reveal>{practice.title}</h1></div><div class="inner-hero__intro" data-hero-reveal><p>{practice.intro}</p><div class="inner-hero__meta"><span>{practice.focus}</span><span>Dubai, UAE</span></div></div></div>
+  </section>
+  <section class="inner-section practice-brief" aria-labelledby="brief-title"><div class="editorial-split"><h2 id="brief-title" data-text-reveal>{practice.lead}</h2><div class="editorial-copy">{practice.overview.map((paragraph) => <p>{paragraph}</p>)}</div></div></section>
+  <section class="inner-section inner-section--forest practice-services" aria-labelledby="services-title"><div class="section-heading"><h2 id="services-title" data-text-reveal>Where we can help.</h2><p>Focused support for the decisions, documents and relationships within this area.</p></div><div class="practice-service-grid" data-bento>{practice.services.map((service, i) => <article><span>0{i+1}</span><h3>{service.title}</h3><p>{service.copy}</p></article>)}</div></section>
+  <section class="inner-section inner-section--mist practice-questions" aria-labelledby="questions-title"><div class="editorial-split"><h2 id="questions-title" data-text-reveal>Questions that shape the first conversation.</h2><div class="practice-question-list">{practice.questions.map((question, i) => <p><span>0{i+1}</span>{question}</p>)}</div></div></section>
+  <section class="inner-section practice-first" aria-labelledby="first-title"><div><h2 id="first-title" data-text-reveal>Start with what you know.</h2><p>{practice.firstStep}</p><a class="practice-text-link" href="/how-we-work/">Explore our process <span aria-hidden="true">↗</span></a></div><img src="/images/dubai-office.webp" alt="Dubai office interior" loading="lazy" data-scroll-image /></section>
+  <section class="inner-section inner-section--forest practice-related" aria-labelledby="related-title"><div class="section-heading"><h2 id="related-title" data-text-reveal>Explore connected areas.</h2><p>Business matters rarely sit within one category.</p></div><div class="practice-related-list">{otherPractices.map((item) => <a href={`/practice-areas/${item.slug}/`}><span>{item.title}</span><span aria-hidden="true">↗</span></a>)}</div></section>
+  <ContactCTA title="Let's clarify the next step." copy="Tell us the commercial objective, the deadline and the documents you have. We will help you identify what matters first." />
+</InnerLayout>

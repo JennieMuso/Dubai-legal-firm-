@@ -5,10 +5,10 @@ import SiteFooter from '../components/SiteFooter.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 
 const services = [
-  { title: 'Corporate & commercial', image: '/images/commercial-agreement.webp', alt: 'A bilingual commercial agreement under review', summary: 'Legal support for company structures, investment, governance and the agreements that keep business moving.', scope: 'Formation · Governance · Transactions' },
-  { title: 'Commercial disputes', image: '/images/team.webp', alt: 'Lawyers reviewing documents and strategy together', summary: 'Early assessment and a practical strategy for negotiation, arbitration or litigation in the UAE.', scope: 'Negotiation · Arbitration · Litigation' },
-  { title: 'Real estate & construction', image: '/images/business-bay.webp', alt: 'Commercial architecture in Dubai Business Bay', summary: 'Commercially grounded advice for property transactions, developments, leases and project claims.', scope: 'Property · Projects · Claims' },
-  { title: 'Employment & mobility', image: '/images/counsel.webp', alt: 'Legal advisers in conversation in a Dubai office', summary: 'Clear employment frameworks for businesses managing people, change and cross-border work.', scope: 'Contracts · Policies · Mobility' }
+  { title: 'Corporate & commercial', slug: 'corporate-commercial', image: '/images/commercial-agreement.webp', alt: 'A bilingual commercial agreement under review', summary: 'Legal support for company structures, investment, governance and the agreements that keep business moving.', scope: 'Formation · Governance · Transactions' },
+  { title: 'Commercial disputes', slug: 'commercial-disputes', image: '/images/team.webp', alt: 'Lawyers reviewing documents and strategy together', summary: 'Early assessment and a practical strategy for negotiation, arbitration or litigation in the UAE.', scope: 'Negotiation · Arbitration · Litigation' },
+  { title: 'Real estate & construction', slug: 'real-estate-construction', image: '/images/business-bay.webp', alt: 'Commercial architecture in Dubai Business Bay', summary: 'Commercially grounded advice for property transactions, developments, leases and project claims.', scope: 'Property · Projects · Claims' },
+  { title: 'Employment & mobility', slug: 'employment-mobility', image: '/images/counsel.webp', alt: 'Legal advisers in conversation in a Dubai office', summary: 'Clear employment frameworks for businesses managing people, change and cross-border work.', scope: 'Contracts · Policies · Mobility' }
 ];
 
 const process = [
@@ -140,7 +140,7 @@ const structuredData = {
               <img class="service-image" src={service.image} alt={service.alt} loading="lazy" />
               <span class="service-number">0{index + 1}</span>
               <div class="service-copy"><strong>{service.scope}</strong><h3>{service.title}</h3><p>{service.summary}</p></div>
-              <a class="service-link" href="#contact" aria-label={`Discuss ${service.title}`}><svg class="action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M7 5h8v8" /></svg></a>
+              <a class="service-link" href={`/practice-areas/${service.slug}/`} aria-label={`Explore ${service.title}`}><svg class="action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M7 5h8v8" /></svg></a>
             </article>)}
         </div>
       </section>
