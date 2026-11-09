@@ -13,9 +13,9 @@ const description = 'Explore Bayline Legal’s Dubai practice areas: corporate a
   <section class="inner-section practice-index" aria-labelledby="index-title">
     <div class="section-heading"><h2 id="index-title" data-text-reveal>Find the right starting point.</h2><p>Choose the area closest to your matter. If more than one applies, we will help map the connections.</p></div>
     <div class="practice-grid" data-bento>
-      {practices.map((practice, i) => <a class="practice-tile" href={`/practice-areas/${practice.slug}/`}>
-        <img src={practice.image} alt={practice.alt} loading="lazy" /><span class="practice-tile__number">0{i+1}</span>
-        <div class="practice-tile__body"><span>{practice.focus}</span><h3>{practice.title}</h3><p>{practice.short}</p></div><span class="practice-tile__arrow" aria-hidden="true">↗</span>
+      {practices.map((practice) => <a class="practice-tile" href={`/practice-areas/${practice.slug}/`}>
+        <img src={practice.image} alt={practice.alt} loading="lazy" />
+        <div class="practice-tile__body"><span>{practice.focus}</span><h3>{practice.title}</h3><p>{practice.short}</p></div><span class="practice-tile__arrow" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M5 15 15 5M7 5h8v8" /></svg></span>
       </a>)}
     </div>
   </section>

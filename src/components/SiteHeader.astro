@@ -18,10 +18,10 @@ const links = [
   <nav aria-label="Main navigation">
     {links.map((link) => <a href={link.href} aria-current={link.id === active ? 'page' : undefined}>{link.label}</a>)}
   </nav>
-  <a class="header-action" href="mailto:hello@baylinelegal.ae?subject=Consultation%20request">Book a consultation</a>
+  <a class="header-action" href="/book-consultation/">Book a consultation</a>
   <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
   <div class="mobile-menu" id="mobile-menu" hidden>
     {links.map((link) => <a href={link.href} aria-current={link.id === active ? 'page' : undefined}>{link.label}</a>)}
-    <a href="mailto:hello@baylinelegal.ae?subject=Consultation%20request">Book a consultation</a>
+    <a href="/book-consultation/">Book a consultation</a>
   </div>
 </header>

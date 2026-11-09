@@ -1,0 +1,14 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { lawyers } from '../../data/lawyers';
+import '../../styles/profile.css';
+export function getStaticPaths(){ return lawyers.map(lawyer=>({params:{slug:lawyer.slug},props:{lawyer}})); }
+const { lawyer } = Astro.props;
+---
+<InnerLayout title={`${lawyer.name} | ${lawyer.role} | Bayline Legal`} description={`Profile of ${lawyer.name}, ${lawyer.role} focused on ${lawyer.focus.toLowerCase()} at Bayline Legal in Dubai.`}>
+  <section class="profile-hero"><div class="profile-portrait"><img src={lawyer.image} alt={`Portrait of ${lawyer.name}`} fetchpriority="high" /></div><div class="profile-intro"><a href="/#lawyers">← Meet the lawyers</a><p>{lawyer.role} · {lawyer.focus}</p><h1 data-hero-reveal>{lawyer.name}</h1><span>Dubai, United Arab Emirates</span></div></section>
+  <section class="inner-section profile-content"><div><h2 data-text-reveal>Professional background</h2><p>Profile information for {lawyer.name} is being prepared. This section will describe career experience, previous roles and the matters most relevant to clients once the firm approves those details.</p></div><div class="profile-side"><h3>Areas of practice</h3>{lawyer.areas.map(area=><p>{area}</p>)}<h3>Certifications & education</h3><p>Verified qualifications and professional admissions will be listed here.</p><h3>Awards & recognition</h3><p>Verified awards and recognition will be listed here.</p><h3>Languages</h3><p>Confirmed languages will be listed here.</p></div></section>
+  <section class="inner-section inner-section--mist profile-approach"><h2 data-text-reveal>Discuss a matter with {lawyer.name.split(' ')[0]}.</h2><p>Share the decision you face, any time-sensitive facts and the documents already available. We will direct your enquiry to the appropriate lawyer.</p><a class="primary-action primary-action--green" href={`/book-consultation/?lawyer=${encodeURIComponent(lawyer.name)}`}>Book a consultation</a></section>
+  <ContactCTA title="Start with the decision." copy="Describe your matter and preferred way to speak with us." />
+</InnerLayout>

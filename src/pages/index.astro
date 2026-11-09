@@ -108,7 +108,7 @@ const structuredData = {
         <div class="hero-copy">
           <h1 id="hero-title">Dubai business law.<br />Clear next steps.</h1>
           <p>Commercial legal advice for companies, founders, investors and private clients navigating decisions in the UAE.</p>
-          <a class="primary-action primary-action--light" href="mailto:hello@baylinelegal.ae?subject=Confidential%20consultation%20request">Discuss your matter <svg class="action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M7 5h8v8" /></svg></a>
+          <a class="primary-action primary-action--light" href="/book-consultation/">Discuss your matter <svg class="action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M7 5h8v8" /></svg></a>
         </div>
         <div class="hero-facts" aria-label="Firm overview">
           <p><strong>Business Bay</strong><span>Dubai, UAE</span></p>
@@ -129,16 +129,15 @@ const structuredData = {
         <div class="position-answer">
           <h2 id="position-title" data-reveal>Counsel for the decision.</h2>
           <p data-reveal>Bayline Legal is a Dubai business law firm advising on corporate transactions, commercial disputes, real estate, construction and employment matters. We begin with the outcome you need, identify the legal and commercial risks, and set out the next practical steps.</p>
-          <a class="primary-action primary-action--green" data-reveal href="mailto:hello@baylinelegal.ae?subject=Consultation%20request">Book a consultation <svg class="action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M7 5h8v8" /></svg></a>
+          <a class="primary-action primary-action--green" data-reveal href="/book-consultation/">Book a consultation <svg class="action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M7 5h8v8" /></svg></a>
         </div>
       </section>
 
       <section class="services" id="services" aria-labelledby="services-title">
         <div class="services-intro"><h2 id="services-title">Business law.<br />Dubai focus.</h2><p>Connected advice for the contracts, relationships, property and people behind a business.</p></div>
         <div class="service-bento">
-            {services.map((service, index) => <article class="service-item" data-service>
+            {services.map((service) => <article class="service-item" data-service>
               <img class="service-image" src={service.image} alt={service.alt} loading="lazy" />
-              <span class="service-number">0{index + 1}</span>
               <div class="service-copy"><strong>{service.scope}</strong><h3>{service.title}</h3><p>{service.summary}</p></div>
               <a class="service-link" href={`/practice-areas/${service.slug}/`} aria-label={`Explore ${service.title}`}><svg class="action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M7 5h8v8" /></svg></a>
             </article>)}
@@ -155,7 +154,7 @@ const structuredData = {
       <section class="lawyers" id="lawyers" aria-labelledby="lawyers-title">
         <div class="lawyers-heading"><span>Meet the lawyers</span><h2 id="lawyers-title">The lawyers behind the advice.</h2><p>Direct access to experienced counsel, with the right practice focus brought into each matter.</p></div>
         <div class="lawyer-grid">
-          {lawyers.map((lawyer) => <article class="lawyer-card" data-image-reveal><img src={lawyer.image} alt={`${lawyer.name}, ${lawyer.role}`} loading="lazy" /><div class="lawyer-scrim"></div><div class="lawyer-meta"><h3>{lawyer.name}</h3><p>{lawyer.role}</p><span>{lawyer.focus}</span></div></article>)}
+          {lawyers.map((lawyer) => <a class="lawyer-card" href={`/lawyers/${lawyer.name.toLowerCase().replaceAll(' ', '-').replace('al-', 'al-')}/`} data-image-reveal><img src={lawyer.image} alt={`${lawyer.name}, ${lawyer.role}`} loading="lazy" /><div class="lawyer-scrim"></div><div class="lawyer-meta"><h3>{lawyer.name}</h3><p>{lawyer.role}</p><span>{lawyer.focus}</span></div></a>)}
         </div>
       </section>
 
