@@ -2,159 +2,157 @@
 import '../styles/global.css';
 
 const services = [
-  {
-    title: 'Corporate transactions',
-    copy: 'Company formation, shareholder arrangements, investment rounds and deals structured for the UAE market.',
-    detail: 'Formation · Governance · M&A'
-  },
-  {
-    title: 'Commercial disputes',
-    copy: 'Clear early assessment, decisive strategy and representation across negotiation, arbitration and litigation.',
-    detail: 'Strategy · Arbitration · Litigation'
-  },
-  {
-    title: 'Real estate & construction',
-    copy: 'Practical counsel for acquisitions, development agreements, leasing, payment claims and project disputes.',
-    detail: 'Transactions · Projects · Claims'
-  },
-  {
-    title: 'Employment & mobility',
-    copy: 'Employment frameworks and cross-border mobility advice that protects the business and respects its people.',
-    detail: 'Contracts · Policies · Mobility'
-  }
+  { title: 'Corporate & commercial', summary: 'Legal support for company structures, investment, governance and the agreements that keep business moving.', scope: 'Company formation, shareholder agreements, commercial contracts, investment rounds and M&A.' },
+  { title: 'Commercial disputes', summary: 'Early assessment and a practical strategy for negotiation, arbitration or litigation in the UAE.', scope: 'Contract disputes, debt recovery, shareholder claims, settlement strategy and representation.' },
+  { title: 'Real estate & construction', summary: 'Commercially grounded advice for property transactions, developments, leases and project claims.', scope: 'Acquisitions, leasing, development agreements, contractor claims and payment disputes.' },
+  { title: 'Employment & mobility', summary: 'Clear employment frameworks for businesses managing people, change and cross-border work.', scope: 'Employment contracts, workplace policies, restructures, exits and mobility coordination.' }
 ];
+
+const faqs = [
+  { question: 'What legal services does a Dubai business law firm provide?', answer: 'A business law firm can advise on company formation, shareholder arrangements, commercial contracts, investment transactions, disputes, real estate, construction and employment matters. The right scope depends on the decision, the parties involved and the UAE rules that apply.' },
+  { question: 'When should a company involve a lawyer in a transaction?', answer: 'Ideally, before key terms are agreed. Early legal input can identify structural, payment, liability and exit risks while the commercial position is still flexible. A lawyer can then turn the agreed business terms into documents that are clear and workable.' },
+  { question: 'Can a commercial dispute be resolved before court proceedings?', answer: 'Often, yes. The first step is to review the contract, evidence, timeline and commercial objective. That assessment can support negotiation, a formal notice, mediation or arbitration strategy before litigation is considered.' },
+  { question: 'Can international businesses get legal advice before entering Dubai?', answer: 'Yes. International companies commonly seek advice on the appropriate UAE structure, ownership and governance, commercial contracts, employment arrangements and the regulatory requirements relevant to their activity.' }
+];
+
+const siteUrl = Astro.site ?? new URL('https://dubai-legal-firm.pages.dev');
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl);
+const socialImage = new URL('/images/counsel.webp', siteUrl);
+const description = 'Commercial legal advice for companies, founders, investors and private clients in Dubai. Corporate transactions, disputes, real estate and employment counsel from Business Bay.';
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': ['LegalService', 'LocalBusiness'],
+      '@id': `${siteUrl}#legal-service`,
+      name: 'Bayline Legal',
+      url: siteUrl.toString(),
+      image: socialImage.toString(),
+      description,
+      address: { '@type': 'PostalAddress', addressLocality: 'Dubai', addressRegion: 'Dubai', addressCountry: 'AE' },
+      areaServed: ['Dubai', 'United Arab Emirates'],
+      knowsAbout: services.map((service) => service.title)
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${siteUrl}#faq`,
+      mainEntity: faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } }))
+    }
+  ]
+};
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Commercial legal counsel for businesses and private clients in Dubai Business Bay." />
-    <meta name="theme-color" content="#102c25" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23102c25%22/><path d=%22M22 20h26c18 0 29 9 29 23 0 9-5 15-13 18 10 2 16 9 16 18H62c0-7-5-11-15-11h-7v11H22V20zm18 15v18h7c8 0 12-3 12-9 0-6-4-9-12-9h-7z%22 fill=%22%23d8ff3e%22/></svg>" />
-    <title>Bayline Legal — Dubai Business Bay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#063a2d" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23063a2d%22/><path d=%22M20 19h30c19 0 30 9 30 24 0 9-5 16-14 20 10 2 16 9 16 18H62c0-7-5-11-15-11h-8v11H20V19zm19 16v19h8c8 0 13-3 13-10 0-6-5-9-13-9h-8z%22 fill=%22white%22/></svg>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_AE" />
+    <meta property="og:title" content="Bayline Legal | Dubai Business Law Firm" />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bayline Legal | Dubai Business Law Firm" />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <title>Dubai Business Law Firm | Bayline Legal, Business Bay</title>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-
-    <header class="site-header" data-header>
+    <header class="site-header">
       <a class="brand" href="#top" aria-label="Bayline Legal home">
         <svg viewBox="0 0 38 38" aria-hidden="true"><path d="M5 4h13c9 0 15 5 15 12 0 5-3 8-7 10 5 1 8 4 8 9h-9c0-4-3-6-8-6h-3v6H5V4Zm9 8v9h4c4 0 6-2 6-5s-2-4-6-4h-4Z" /></svg>
         <span>Bayline Legal</span>
       </a>
-      <nav aria-label="Main navigation">
-        <a href="#expertise">Expertise</a>
-        <a href="#approach">Approach</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <a class="header-action" href="mailto:hello@baylinelegal.ae?subject=Confidential%20consultation%20request">Talk to counsel</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
-        <span>Menu</span>
-      </button>
-      <div class="mobile-menu" id="mobile-menu" hidden>
-        <a href="#expertise">Expertise</a>
-        <a href="#approach">Approach</a>
-        <a href="#contact">Contact</a>
-      </div>
+      <nav aria-label="Main navigation"><a href="#services">Services</a><a href="#approach">Approach</a><a href="#faq">FAQs</a></nav>
+      <a class="header-action" href="mailto:hello@baylinelegal.ae?subject=Confidential%20consultation%20request">Speak with a lawyer</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+      <div class="mobile-menu" id="mobile-menu" hidden><a href="#services">Services</a><a href="#approach">Approach</a><a href="#faq">FAQs</a><a href="#contact">Contact</a></div>
     </header>
 
     <main id="main">
       <section class="hero" id="top" aria-labelledby="hero-title">
-        <img src="/images/counsel.webp" alt="Two legal advisers in conversation overlooking Dubai Business Bay" fetchpriority="high" />
-        <div class="hero-shade"></div>
+        <img class="hero-image" src="/images/counsel.webp" alt="Two legal advisers discussing a business matter overlooking Dubai Business Bay" fetchpriority="high" />
+        <div class="hero-scrim"></div>
         <div class="hero-copy">
-          <h1 id="hero-title">Business moves.<br />Legal clarity.</h1>
-          <p>Commercial legal counsel from Dubai Business Bay, built around your next decision.</p>
-          <a class="text-action" href="mailto:hello@baylinelegal.ae?subject=Confidential%20consultation%20request">
-            Start a confidential conversation <span aria-hidden="true">↗</span>
-          </a>
+          <h1 id="hero-title">Dubai business law.<br />Clear next steps.</h1>
+          <p>Commercial legal advice for companies, founders, investors and private clients navigating decisions in the UAE.</p>
+          <a class="primary-action primary-action--light" href="mailto:hello@baylinelegal.ae?subject=Confidential%20consultation%20request">Discuss your matter <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="hero-location">
-          <span>Business Bay, Dubai</span>
-          <span data-dubai-time>Dubai · GST</span>
+        <div class="hero-facts" aria-label="Firm overview">
+          <p><strong>Business Bay</strong><span>Dubai, UAE</span></p>
+          <p><strong>Commercial focus</strong><span>Transactions · Disputes · Property</span></p>
+          <p><strong data-dubai-time>Dubai · GST</strong><span>Local time</span></p>
         </div>
-        <a class="scroll-cue" href="#position" aria-label="Scroll to introduction"><span></span>Scroll</a>
       </section>
 
-      <section class="position" id="position" aria-labelledby="position-title">
-        <div class="position-side" data-reveal>
-          <p>Decisive advice for ambitious businesses, investors and private clients operating in the UAE.</p>
+      <section class="position" aria-labelledby="position-title">
+        <div class="position-note" data-reveal><p>Legal advice should make the commercial decision easier to see, explain and act on.</p><img src="/images/commercial-agreement.webp" alt="A bilingual commercial agreement being reviewed" loading="lazy" /></div>
+        <div class="position-answer">
+          <h2 id="position-title" data-reveal>Counsel for the decision.</h2>
+          <p data-reveal>Bayline Legal is a Dubai business law firm advising on corporate transactions, commercial disputes, real estate, construction and employment matters. We begin with the outcome you need, identify the legal and commercial risks, and set out the next practical steps.</p>
+          <a class="inline-action" data-reveal href="#services">See how we can help <span aria-hidden="true">↓</span></a>
         </div>
-        <div class="position-main">
-          <h2 id="position-title" data-reveal>Counsel for decisive moments.</h2>
-          <p data-reveal>We turn complex legal positions into a clear route forward. Every matter starts with the commercial reality, then the law, then the action.</p>
-          <a data-reveal href="#expertise">Explore our expertise <span aria-hidden="true">↓</span></a>
-        </div>
-        <div class="position-mark" aria-hidden="true">BAY</div>
       </section>
 
-      <section class="expertise" id="expertise" aria-labelledby="expertise-title">
-        <div class="expertise-intro">
-          <h2 id="expertise-title">Legal work.<br />Clear moves.</h2>
-          <p>Four connected practice areas for the moments that shape a business.</p>
-        </div>
-        <div class="service-stage">
-          {services.map((service, index) => (
-            <article class="service-panel" style={`--panel-index:${index}`}>
-              <div class="service-heading">
-                <h3>{service.title}</h3>
-                <span>{index + 1} of {services.length}</span>
-              </div>
-              <p>{service.copy}</p>
-              <div class="service-detail">{service.detail}</div>
-            </article>
-          ))}
+      <section class="services" id="services" aria-labelledby="services-title">
+        <div class="services-intro"><h2 id="services-title">Business law.<br />Dubai focus.</h2><p>Connected advice for the contracts, relationships, property and people behind a business.</p></div>
+        <div class="service-layout">
+          <div class="service-sticky"><img src="/images/dubai-office.webp" alt="A green-stone office in Dubai overlooking the skyline" loading="lazy" /><p>From a first term sheet to a dispute that needs immediate direction, the advice stays focused on what the business must decide next.</p></div>
+          <div class="service-list">
+            {services.map((service) => <article class="service-item" data-service><h3>{service.title}</h3><p>{service.summary}</p><strong>{service.scope}</strong></article>)}
+          </div>
         </div>
       </section>
 
       <section class="approach" id="approach" aria-labelledby="approach-title">
-        <div class="approach-media" data-image-reveal>
-          <img src="/images/team.webp" alt="Legal team reviewing a commercial agreement around a table" loading="lazy" />
-        </div>
-        <div class="approach-copy">
-          <h2 id="approach-title" data-reveal>Close counsel.<br />Clear outcomes.</h2>
-          <p data-reveal>You work directly with the lawyer responsible for the result. Advice arrives in plain language, with the decision, risk and next move visible.</p>
-          <ul aria-label="How we work">
-            <li data-reveal><strong>One point of contact</strong><span>Accountability stays clear from first call to final document.</span></li>
-            <li data-reveal><strong>Commercial context first</strong><span>We understand the deal before we shape the legal answer.</span></li>
-            <li data-reveal><strong>Built around your deadline</strong><span>The work plan responds to the pace of the decision.</span></li>
-          </ul>
+        <div class="approach-heading"><h2 id="approach-title" data-reveal>Direct advice.<br />Business view.</h2><p data-reveal>You work with the lawyer responsible for the matter. Advice is written in plain language and connected to the deadline, risk and business objective.</p></div>
+        <div class="approach-collage">
+          <div class="collage-large" data-image-reveal><img src="/images/team.webp" alt="A legal team reviewing contracts and plans around a table" loading="lazy" /></div>
+          <div class="collage-small" data-image-reveal><img src="/images/business-bay.webp" alt="Green glass architecture along the Dubai canal in Business Bay" loading="lazy" /></div>
+          <div class="approach-principles">
+            <p data-reveal><strong>Understand the position</strong><span>We review the facts, documents, parties and commercial objective.</span></p>
+            <p data-reveal><strong>Define the options</strong><span>You see the available routes, material risks and likely trade-offs.</span></p>
+            <p data-reveal><strong>Move with clarity</strong><span>We agree the action plan, responsibility and timing.</span></p>
+          </div>
         </div>
       </section>
 
       <section class="place" aria-labelledby="place-title">
-        <img src="/images/business-bay.webp" alt="Green glass architecture beside the Dubai canal in Business Bay" loading="lazy" />
-        <div class="place-copy">
-          <h2 id="place-title">Dubai insight.<br />Global pace.</h2>
-          <p>Based in Business Bay and positioned for work that crosses industries, borders and time zones.</p>
+        <img src="/images/business-bay.webp" alt="Business Bay architecture and the Dubai skyline" loading="lazy" /><div class="place-scrim"></div>
+        <div class="place-copy"><h2 id="place-title">Business Bay.<br />Global outlook.</h2><p>Dubai-based counsel for matters that cross industries, jurisdictions and time zones.</p></div>
+      </section>
+
+      <section class="faq" id="faq" aria-labelledby="faq-title">
+        <div class="faq-intro"><h2 id="faq-title">Dubai law.<br />Clear answers.</h2><p>Brief answers to common questions from businesses and investors. Specific advice depends on the facts of each matter.</p></div>
+        <div class="faq-list">
+          {faqs.map((faq, index) => <details data-faq open={index === 0}><summary>{faq.question}<span aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}
         </div>
       </section>
 
       <section class="contact" id="contact" aria-labelledby="contact-title">
-        <p data-reveal>Have a decision in front of you?</p>
-        <h2 id="contact-title" data-reveal>Let’s make the path clear.</h2>
-        <a class="contact-button" data-reveal href="mailto:hello@baylinelegal.ae?subject=Confidential%20consultation%20request&body=Hello%20Bayline%20Legal%2C%0A%0AI%27d%20like%20to%20discuss%3A%0A%0AMy%20preferred%20contact%20details%20are%3A%0A">
-          Request a consultation <span aria-hidden="true">↗</span>
-        </a>
+        <div><h2 id="contact-title" data-reveal>Bring us the decision.</h2><p data-reveal>Tell us what is happening, what matters most and when you need to move. We will help you identify the legal path forward.</p></div>
+        <a class="primary-action primary-action--dark" data-reveal href="mailto:hello@baylinelegal.ae?subject=Confidential%20consultation%20request&body=Hello%20Bayline%20Legal%2C%0A%0AI%27d%20like%20to%20discuss%3A%0A%0AMy%20preferred%20contact%20details%20are%3A%0A">Request a consultation <span aria-hidden="true">↗</span></a>
       </section>
     </main>
 
     <footer>
-      <div class="footer-top">
-        <a class="brand footer-brand" href="#top">
-          <svg viewBox="0 0 38 38" aria-hidden="true"><path d="M5 4h13c9 0 15 5 15 12 0 5-3 8-7 10 5 1 8 4 8 9h-9c0-4-3-6-8-6h-3v6H5V4Zm9 8v9h4c4 0 6-2 6-5s-2-4-6-4h-4Z" /></svg>
-          <span>Bayline Legal</span>
-        </a>
-        <p>Commercial legal counsel for decisive moments.</p>
-      </div>
-      <div class="footer-grid">
+      <div class="footer-lead"><a class="brand" href="#top" aria-label="Bayline Legal home"><svg viewBox="0 0 38 38" aria-hidden="true"><path d="M5 4h13c9 0 15 5 15 12 0 5-3 8-7 10 5 1 8 4 8 9h-9c0-4-3-6-8-6h-3v6H5V4Zm9 8v9h4c4 0 6-2 6-5s-2-4-6-4h-4Z" /></svg><span>Bayline Legal</span></a><p>Commercial legal advice for clear decisions in Dubai.</p></div>
+      <div class="footer-columns">
         <div><strong>Visit</strong><p>Business Bay<br />Dubai, United Arab Emirates</p></div>
         <div><strong>Contact</strong><p><a href="mailto:hello@baylinelegal.ae">hello@baylinelegal.ae</a><br /><a href="tel:+97140000000">+971 4 000 0000</a></p></div>
-        <div><strong>Explore</strong><p><a href="#expertise">Expertise</a><br /><a href="#approach">Approach</a><br /><a href="#contact">Contact</a></p></div>
+        <div><strong>Services</strong><p><a href="#services">Corporate & commercial</a><br /><a href="#services">Commercial disputes</a><br /><a href="#services">Real estate & construction</a><br /><a href="#services">Employment & mobility</a></p></div>
       </div>
       <div class="footer-name" aria-hidden="true">BAYLINE</div>
-      <div class="footer-bottom"><span>© {new Date().getFullYear()} Bayline Legal</span><span>Homepage concept</span></div>
+      <div class="footer-meta"><span>© {new Date().getFullYear()} Bayline Legal</span><span>Dubai, United Arab Emirates</span></div>
     </footer>
   </body>
 </html>

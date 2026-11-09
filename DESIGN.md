@@ -1,9 +1,11 @@
 # Design direction
 
-The visual idea is **clarity through layers**. Dense legal matters appear as stacked dark panels that resolve into a bright lime field while the visitor scrolls.
+The visual idea is **clear counsel, in context**. The homepage moves between white editorial space and deep-green legal chapters, pairing every claim with a document, a place or people doing the work.
 
-The palette is lime `#D8FF3E`, deep green `#102C25`, near-black `#0B0E0D`, white `#F7F8F2`, and warm off-white `#EEEDE4`. Lime is reserved for decisions and calls to action.
+The palette is deep forest `#063A2D`, dark forest `#02261D`, green `#0F5B44`, soft mint `#DFECE6`, mist `#F0F5F2`, white and black text. Lime is not part of the system.
 
-The type system uses one modern sans-serif stack. Display type is large, tightly tracked, and left aligned. Body copy stays direct and compact. Components have square corners, flat colour, and no shadows or gradients.
+The composition follows an editorial legal-services rhythm: a full-bleed first screen, an asymmetrical answer section, a dark services chapter with a sticky context image, a people-led approach collage, a place-led statement, concise questions and a decisive green close.
 
-Motion uses native scroll with GSAP only for progressive enhancement. The signature move is the services dossier: panels stack and separate in response to scroll. Reduced-motion users receive the fully composed static page.
+Display type is large, compact and left aligned. Components use square corners, flat colour and no gradients, resting shadows, glass effects or decorative rules.
+
+Motion uses native scroll with GSAP as progressive enhancement. Images drift subtly, content enters once, and service panels recede as the next area takes focus. Reduced-motion users receive the complete static composition.
