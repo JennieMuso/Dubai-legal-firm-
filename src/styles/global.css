@@ -77,12 +77,11 @@ h1, h2, h3 { font-weight: 500; letter-spacing: -.055em; line-height: .94; text-w
 .services-intro { display: grid; grid-template-columns: 1.6fr .75fr; gap: 8vw; align-items: end; padding-bottom: clamp(3.5rem, 5vw, 5rem); }
 .services-intro h2 { max-width: 11ch; font-size: clamp(3rem, 5vw, 4rem); }
 .services-intro p { max-width: 28rem; padding-bottom: .6rem; font-size: 1.15rem; }
-.service-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 1.25rem; align-items: start; }
-.service-sticky { position: sticky; top: 1.25rem; min-height: calc(82vh - 2.5rem); display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; background: var(--green); }
-.service-sticky img { height: 58vh; object-fit: cover; object-position: center; }
-.service-sticky p { max-width: 34rem; padding: 2.5rem; font-size: 1.15rem; }
-.service-list { display: grid; gap: 1.25rem; }
-.service-item { position: relative; height: clamp(44rem, 86vh, 56rem); overflow: hidden; background: var(--green); color: var(--white); transform-origin: center top; }
+.service-bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: 27rem; gap: 1.25rem; }
+.service-item { position: relative; min-height: 0; overflow: hidden; background: var(--green); color: var(--white); transform-origin: center; }
+.service-item:nth-child(1) { grid-column: 1 / span 7; grid-row: span 2; }
+.service-item:nth-child(2), .service-item:nth-child(3) { grid-column: 8 / span 5; }
+.service-item:nth-child(4) { grid-column: 1 / -1; min-height: 32rem; }
 .service-item::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .68) 78%, rgba(0, 0, 0, .92) 100%); transition: opacity .35s ease; }
 .service-item:hover::after { opacity: .96; }
 .service-image { position: absolute; inset: 0; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
@@ -221,11 +220,11 @@ footer { padding: 5rem var(--pad) 2rem; overflow: hidden; background: var(--fore
   .services { padding-block: 5rem; }
   .services-intro { grid-template-columns: 1fr; gap: 2rem; padding-bottom: 4rem; }
   .services-intro h2 { max-width: 100%; font-size: clamp(2.8rem, 10vw, 4rem); }
-  .service-layout { grid-template-columns: 1fr; }
-  .service-sticky { position: relative; top: auto; min-height: auto; }
-  .service-sticky img { height: 72vh; }
-  .service-sticky p { padding: 2rem 1.5rem; }
-  .service-item { height: clamp(40rem, 82vh, 48rem); min-height: 0; }
+  .service-bento { grid-template-columns: 1fr 1fr; grid-auto-rows: 38rem; }
+  .service-item:nth-child(1), .service-item:nth-child(4) { grid-column: 1 / -1; grid-row: auto; }
+  .service-item:nth-child(2) { grid-column: 1; }
+  .service-item:nth-child(3) { grid-column: 2; }
+  .service-item { min-height: 0; }
   .service-copy { display: block; padding: 1.75rem 5.75rem 1.75rem 1.75rem; }
   .service-item h3 { max-width: 100%; font-size: clamp(2.4rem, 9vw, 3.6rem); }
   .service-copy > p { margin-top: 1rem; }
@@ -277,6 +276,8 @@ footer { padding: 5rem var(--pad) 2rem; overflow: hidden; background: var(--fore
   .carousel-controls { grid-column: 1; grid-row: auto; }
   .testimonials-heading > p { grid-column: 1; grid-row: auto; }
   .testimonial-track { grid-auto-columns: 88%; }
+  .service-bento { grid-template-columns: 1fr; grid-auto-rows: 42rem; }
+  .service-item:nth-child(n) { grid-column: 1; grid-row: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {

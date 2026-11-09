@@ -1,0 +1,19 @@
+---
+interface Props { isHome?: boolean; }
+const { isHome = false } = Astro.props;
+const servicesHref = isHome ? '#services' : '/#services';
+---
+
+<footer>
+  <div class="footer-lead">
+    <a class="brand" href="/" aria-label="Bayline Legal home"><svg viewBox="0 0 38 38" aria-hidden="true"><path d="M5 4h13c9 0 15 5 15 12 0 5-3 8-7 10 5 1 8 4 8 9h-9c0-4-3-6-8-6h-3v6H5V4Zm9 8v9h4c4 0 6-2 6-5s-2-4-6-4h-4Z" /></svg><span>Bayline Legal</span></a>
+    <p>Commercial legal advice for clear decisions in Dubai.</p>
+  </div>
+  <div class="footer-columns">
+    <div><strong>Visit</strong><p>Business Bay<br />Dubai, United Arab Emirates</p></div>
+    <div><strong>Contact</strong><p><a href="mailto:hello@baylinelegal.ae">hello@baylinelegal.ae</a><br /><a href="tel:+97140000000">+971 4 000 0000</a></p></div>
+    <div><strong>Explore</strong><p><a href={servicesHref}>Practice areas</a><br /><a href="/about/">About us</a><br /><a href="/how-we-work/">How we work</a><br /><a href="/faq/">FAQs</a></p></div>
+  </div>
+  <div class="footer-name" aria-hidden="true">BAYLINE</div>
+  <div class="footer-meta"><span>© {new Date().getFullYear()} Bayline Legal</span><span>Dubai, United Arab Emirates</span></div>
+</footer>

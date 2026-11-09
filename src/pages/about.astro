@@ -1,0 +1,73 @@
+---
+import InnerLayout from '../layouts/InnerLayout.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const description = 'Learn how Bayline Legal approaches commercial law from Dubai Business Bay: direct counsel, connected practice areas and advice built around the decision.';
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About Bayline Legal',
+  description,
+  url: 'https://dubai-legal-firm.pages.dev/about/'
+};
+---
+
+<InnerLayout title="About Bayline Legal | Dubai Business Law Firm" description={description} active="about" structuredData={structuredData}>
+  <section class="inner-hero" aria-labelledby="about-title">
+    <div class="inner-hero__image"><img src="/images/team.webp" alt="Bayline Legal advisers reviewing a commercial matter in Dubai" fetchpriority="high" /></div>
+    <div class="inner-hero__grid">
+      <h1 id="about-title" data-hero-reveal>Legal advice shaped around the decision.</h1>
+      <div class="inner-hero__intro" data-hero-reveal>
+        <p>Bayline Legal is a Dubai business law practice for companies, founders, investors and private clients who need the legal position translated into a practical route forward.</p>
+        <div class="inner-hero__meta"><span>Business Bay, Dubai</span><span>Commercial focus</span><span>UAE and cross-border matters</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="inner-section" aria-labelledby="about-position-title">
+    <div class="about-bento" data-bento>
+      <article class="about-bento__statement">
+        <h2 id="about-position-title">Close enough to understand the pressure. Clear enough to change the outcome.</h2>
+        <p>Our role is to make the important parts of a matter visible: what the documents say, where the commercial exposure sits, which options remain open and what must happen next.</p>
+      </article>
+      <div class="about-bento__image"><img src="/images/commercial-agreement.webp" alt="A bilingual commercial agreement being reviewed" loading="lazy" data-scroll-image /></div>
+      <article class="about-bento__fact"><strong>Dubai context</strong><p>Advice grounded in the pace, structures and working realities of business in the UAE.</p></article>
+      <article class="about-bento__fact"><strong>Direct counsel</strong><p>Clear responsibility for the matter and direct access to the lawyer leading the work.</p></article>
+      <article class="about-bento__fact"><strong>Connected view</strong><p>Transactions, disputes, property and employment considered as parts of the same business.</p></article>
+    </div>
+  </section>
+
+  <section class="inner-section inner-section--mist" aria-labelledby="about-story-title">
+    <div class="editorial-split">
+      <div class="editorial-split__title"><h2 id="about-story-title" data-text-reveal>A business law firm should improve the decision, not add another layer of complexity.</h2></div>
+      <div class="editorial-copy">
+        <p>Commercial legal work rarely arrives as a tidy legal question. It arrives as a transaction that must close, a relationship under strain, a payment that has stopped, a project facing delay or a people decision that cannot wait.</p>
+        <p>We begin by understanding that wider position. The legal analysis matters, but it only becomes useful when it is connected to the objective, the deadline, the people involved and the consequences of each available route.</p>
+        <p>That means separating immediate issues from background noise, testing assumptions against the documents and applicable UAE rules, and explaining the position in language that decision-makers can use. Where specialist or jurisdiction-specific input is needed, the work should still feel coordinated rather than fragmented.</p>
+        <p>Clients should leave a conversation knowing what is known, what remains uncertain, what the options cost in time and risk, and who is responsible for the next action. That standard shapes the way matters are scoped, communicated and carried through.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="inner-section" aria-labelledby="principles-title">
+    <div class="section-heading"><h2 id="principles-title" data-text-reveal>What guides the work.</h2><p>The method is consistent even when the subject changes: understand the business position, make the choices visible and move with discipline.</p></div>
+    <div class="principle-list">
+      <article><strong>Commercial reality</strong><h3>Start with the outcome.</h3><p>We ask what a successful result must make possible for the business, then shape the legal work around that objective.</p></article>
+      <article><strong>Plain language</strong><h3>Make risk usable.</h3><p>Advice should distinguish material exposure from technical possibility and explain the consequence of each route without hiding behind legal phrasing.</p></article>
+      <article><strong>Clear ownership</strong><h3>Keep responsibility visible.</h3><p>The client should know who is leading, what is being delivered, when it is due and which decision is needed from them.</p></article>
+      <article><strong>Measured action</strong><h3>Match the response to the matter.</h3><p>Not every risk requires escalation. We choose the next step for its ability to protect the position and advance the commercial objective.</p></article>
+    </div>
+  </section>
+
+  <section class="inner-section inner-section--forest" aria-labelledby="about-context-title">
+    <div class="section-heading"><h2 id="about-context-title" data-text-reveal>One matter. Several connected questions.</h2><p>A decision about a company can involve contracts, shareholders, property, people and potential disputes at the same time.</p></div>
+    <div class="context-bento" data-bento>
+      <article><h3>Advice that sees the whole position.</h3><p>We look across the documents, relationships and operational constraints so that solving one issue does not create another elsewhere.</p></article>
+      <article><h3>Transactions</h3><p>Structure, negotiation, governance and documents aligned around the commercial deal.</p></article>
+      <article><h3>Disputes</h3><p>Early assessment, evidence and strategy before positions harden or costs accelerate.</p></article>
+      <article><h3>Built for decisions under pressure.</h3><p>Urgency does not remove the need for judgment. It makes a clear sequence, realistic options and direct communication more important.</p></article>
+    </div>
+  </section>
+
+  <ContactCTA title="Bring us the full picture." copy="Tell us the decision, the deadline and what is at stake. We will help you identify the legal work that matters now." />
+</InnerLayout>

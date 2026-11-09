@@ -1,0 +1,50 @@
+---
+import '../styles/global.css';
+import '../styles/inner.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  active?: 'about' | 'process' | 'faq';
+  structuredData?: object;
+}
+const { title, description, active, structuredData } = Astro.props;
+const siteUrl = Astro.site ?? new URL('https://dubai-legal-firm.pages.dev');
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl);
+const socialImage = new URL('/images/counsel.webp', siteUrl);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#063a2d" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23063a2d%22/><path d=%22M20 19h30c19 0 30 9 30 24 0 9-5 16-14 20 10 2 16 9 16 18H62c0-7-5-11-15-11h-8v11H20V19zm19 16v19h8c8 0 13-3 13-10 0-6-5-9-13-9h-8z%22 fill=%22white%22/></svg>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_AE" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{title}</title>
+    {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}
+  </head>
+  <body class="inner-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <SiteHeader active={active} />
+    <main id="main"><slot /></main>
+    <SiteFooter />
+  </body>
+</html>
+
+<script>
+  import '../scripts/home.js';
+  import '../scripts/inner.js';
+</script>

@@ -1,0 +1,59 @@
+---
+import InnerLayout from '../layouts/InnerLayout.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const description = 'See how Bayline Legal handles commercial matters in Dubai, from initial assessment and legal strategy through action, communication and follow-through.';
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'How Bayline Legal Works',
+  description,
+  url: 'https://dubai-legal-firm.pages.dev/how-we-work/'
+};
+---
+
+<InnerLayout title="How We Work | Bayline Legal Dubai" description={description} active="process" structuredData={structuredData}>
+  <section class="inner-hero" aria-labelledby="work-title">
+    <div class="inner-hero__image"><img src="/images/dubai-office.webp" alt="A Dubai office corridor overlooking Business Bay" fetchpriority="high" /></div>
+    <div class="inner-hero__grid">
+      <h1 id="work-title" data-hero-reveal>A legal process built around the next decision.</h1>
+      <div class="inner-hero__intro" data-hero-reveal><p>Good process does more than organise legal tasks. It keeps the objective, evidence, risk, responsibility and timing visible from the first review to the final step.</p></div>
+    </div>
+    <div class="process-hero-rail" aria-label="Matter stages"><span>01<strong>Understand</strong></span><span>02<strong>Assess</strong></span><span>03<strong>Act</strong></span><span>04<strong>Follow through</strong></span></div>
+  </section>
+
+  <section class="inner-section" aria-labelledby="path-title">
+    <div class="decision-path">
+      <div class="decision-path__intro"><h2 id="path-title" data-text-reveal>Four stages. One continuous view of the matter.</h2><p>The stages adapt to the urgency and type of work. What stays constant is a clear relationship between the legal analysis and the decision it must support.</p></div>
+      <div class="path-steps">
+        <article class="path-step" data-path-step><span>01</span><div><h3>Understand the position.</h3><p>We establish what has happened, what the client needs to achieve, which documents control the position and where timing changes the available options.</p><ul><li>Objective</li><li>Facts and documents</li><li>Parties</li><li>Deadline</li></ul></div></article>
+        <article class="path-step" data-path-step><span>02</span><div><h3>Assess the routes.</h3><p>We test the legal position, identify material exposure and explain the realistic routes with their commercial, procedural and timing implications.</p><ul><li>Legal analysis</li><li>Risk</li><li>Trade-offs</li><li>Recommended route</li></ul></div></article>
+        <article class="path-step" data-path-step><span>03</span><div><h3>Act with a defined plan.</h3><p>Documents, negotiations, notices or proceedings move against an agreed sequence. Responsibilities and decision points remain visible as the matter develops.</p><ul><li>Drafting</li><li>Negotiation</li><li>Representation</li><li>Progress reporting</li></ul></div></article>
+        <article class="path-step" data-path-step><span>04</span><div><h3>Close the matter and protect what follows.</h3><p>Resolution is documented, immediate obligations are tracked and any governance, contractual or operational changes are identified before the file closes.</p><ul><li>Completion</li><li>Implementation</li><li>Lessons</li><li>Preventive action</li></ul></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="inner-section inner-section--forest" aria-labelledby="modes-title">
+    <div class="section-heading"><h2 id="modes-title" data-text-reveal>The process changes with the matter.</h2><p>A transaction, an active dispute and ongoing counsel require different working rhythms. The underlying discipline remains the same.</p></div>
+    <div class="mode-bento" data-bento>
+      <article><h3>Transactions move through decision gates.</h3><p>Structure, key terms, diligence, drafting, negotiation and completion stay connected to the commercial deal and its critical dependencies.</p></article>
+      <article><h3>Disputes begin with position.</h3><p>Contract, evidence, procedure and commercial objective are assessed before escalation determines the strategy.</p></article>
+      <article><h3>Urgent matters narrow the sequence.</h3><p>Immediate protective steps come first, without losing sight of the position that must be built for what follows.</p></article>
+      <article><h3>Ongoing counsel creates continuity.</h3><p>Recurring advice becomes more efficient when the lawyer understands the business, its documents, its risk tolerance and the people making decisions.</p></article>
+    </div>
+  </section>
+
+  <section class="inner-section" aria-labelledby="communication-title">
+    <div class="communication-grid">
+      <div class="communication-grid__statement"><h2 id="communication-title" data-text-reveal>Communication is part of the legal work.</h2><p>Silence creates uncertainty. Updates should explain what changed, why it matters, what is needed and when the next decision will arise.</p></div>
+      <div class="communication-grid__list">
+        <article><strong>At the start</strong><div><h3>Scope and priorities.</h3><p>The work, assumptions, responsibilities, timing and likely decision points are made clear.</p></div></article>
+        <article><strong>During the matter</strong><div><h3>Updates with meaning.</h3><p>Progress is connected to consequence, rather than reported as a list of completed tasks.</p></div></article>
+        <article><strong>Before a decision</strong><div><h3>Options in usable form.</h3><p>The recommendation, alternatives, risks and immediate next step are set out directly.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <ContactCTA title="Start with the decision." copy="Share the matter, the commercial objective and the timing. We will propose the clearest way to begin." />
+</InnerLayout>

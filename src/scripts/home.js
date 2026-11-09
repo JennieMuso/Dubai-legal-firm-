@@ -127,11 +127,10 @@ if (!reducedMotion) {
     });
   });
 
-  gsap.utils.toArray('[data-service]').forEach((panel, index, panels) => {
+  gsap.utils.toArray('[data-service]').forEach((panel, index) => {
     const image = panel.querySelector('.service-image');
     if (image) gsap.from(image, { yPercent: 10, scale: 1.08, duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: panel, start: 'top 82%', once: true }, clearProps: 'transform' });
-    if (index === panels.length - 1) return;
-    gsap.to(panel, { opacity: .62, ease: 'none', scrollTrigger: { trigger: panel, start: 'top 8%', end: 'bottom 12%', scrub: true } });
+    gsap.from(panel, { y: 42, opacity: 0, duration: .8, delay: index * .04, ease: 'power3.out', scrollTrigger: { trigger: panel, start: 'top 88%', once: true }, clearProps: 'transform,opacity' });
   });
 
   document.querySelectorAll('[data-process-step]').forEach((step) => {

@@ -1,0 +1,27 @@
+---
+interface Props { isHome?: boolean; active?: 'about' | 'process' | 'faq'; }
+const { isHome = false, active } = Astro.props;
+const links = [
+  { label: 'Practice areas', href: isHome ? '#services' : '/#services' },
+  { label: 'About us', href: '/about/', id: 'about' },
+  { label: 'How we work', href: '/how-we-work/', id: 'process' },
+  { label: 'Lawyers', href: isHome ? '#lawyers' : '/#lawyers' },
+  { label: 'FAQs', href: '/faq/', id: 'faq' }
+];
+---
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Bayline Legal home">
+    <svg viewBox="0 0 38 38" aria-hidden="true"><path d="M5 4h13c9 0 15 5 15 12 0 5-3 8-7 10 5 1 8 4 8 9h-9c0-4-3-6-8-6h-3v6H5V4Zm9 8v9h4c4 0 6-2 6-5s-2-4-6-4h-4Z" /></svg>
+    <span>Bayline Legal</span>
+  </a>
+  <nav aria-label="Main navigation">
+    {links.map((link) => <a href={link.href} aria-current={link.id === active ? 'page' : undefined}>{link.label}</a>)}
+  </nav>
+  <a class="header-action" href="mailto:hello@baylinelegal.ae?subject=Consultation%20request">Book a consultation</a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    {links.map((link) => <a href={link.href} aria-current={link.id === active ? 'page' : undefined}>{link.label}</a>)}
+    <a href="mailto:hello@baylinelegal.ae?subject=Consultation%20request">Book a consultation</a>
+  </div>
+</header>

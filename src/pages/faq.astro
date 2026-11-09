@@ -1,0 +1,71 @@
+---
+import InnerLayout from '../layouts/InnerLayout.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const groups = [
+  {
+    id: 'starting', title: 'Starting a matter', questions: [
+      { q: 'When should a business speak with a lawyer?', a: 'Legal input is most useful before the commercial position becomes fixed. For a transaction, that may be before key terms are signed. For a dispute, it may be when performance, payment or communication first breaks down. Early advice can preserve options, protect evidence and prevent an avoidable concession.' },
+      { q: 'What should we send before the first consultation?', a: 'A short timeline, the key documents and a clear statement of the outcome you need are usually enough to begin. For urgent matters, identify the immediate deadline and any action already taken. The lawyer can then confirm what further information is material rather than asking for an unfocused document dump.' },
+      { q: 'How is the scope and cost of legal work agreed?', a: 'The scope should identify the work to be delivered, the assumptions it relies on, who is responsible for each input and the expected timing. Fees depend on the nature and predictability of the matter. Once the position is understood, the appropriate fee approach and any stages should be discussed before substantive work begins.' }
+    ]
+  },
+  {
+    id: 'corporate', title: 'Companies and transactions', questions: [
+      { q: 'Can Bayline Legal advise an international company entering Dubai?', a: 'Yes. The initial work commonly considers the proposed activity, ownership and governance, commercial arrangements, employment needs and the UAE requirements relevant to the structure. The correct route depends on the business model and where the company intends to operate.' },
+      { q: 'When should lawyers review a term sheet or heads of terms?', a: 'Before signature wherever possible. Documents described as non-binding can still fix commercial expectations, create binding provisions or narrow the room to negotiate the final agreement. An early review focuses on structure, conditions, exclusivity, liability, payment, control and exit.' },
+      { q: 'What is included in a commercial contract review?', a: 'The review should connect the wording to how the relationship will operate. Typical issues include scope, performance standards, payment, change control, intellectual property, confidentiality, liability, termination, dispute resolution and the practical consequences if delivery does not go to plan.' }
+    ]
+  },
+  {
+    id: 'disputes', title: 'Disputes and urgent issues', questions: [
+      { q: 'Can a commercial dispute be resolved without court proceedings?', a: 'Often. The appropriate route may include direct negotiation, a formal notice, mediation or arbitration, depending on the contract and the parties. The first step is to assess the legal position, evidence, commercial objective and urgency so that any approach is made from an informed position.' },
+      { q: 'What should a company do when it receives a legal notice?', a: 'Record the date of receipt, preserve the notice and supporting documents, avoid an informal response that may prejudice the position, and obtain advice promptly. The response deadline, governing contract and procedural context may affect what must happen next.' },
+      { q: 'What evidence is useful in a contract dispute?', a: 'The signed contract and amendments are central, but the working record often matters as much: correspondence, meeting notes, invoices, delivery records, approvals, payment history, change requests and internal decision records. Evidence should be preserved in its original form and organised against a clear timeline.' }
+    ]
+  },
+  {
+    id: 'people-property', title: 'People, property and projects', questions: [
+      { q: 'When should employment advice be sought for a restructure or exit?', a: 'Before decisions are communicated or documents are issued. The legal position depends on the contract, the reason for the proposed action, the process followed and the applicable UAE framework. Early advice helps align the communication, documentation and operational plan.' },
+      { q: 'Can a lease or property agreement be reviewed before signing?', a: 'Yes. A review can identify issues in permitted use, term, rent and review mechanisms, deposits, maintenance, fit-out, assignment, termination, handover and dispute provisions. The commercial importance of each issue depends on how the property will be used and the investment being made.' },
+      { q: 'How are construction payment or delay claims assessed?', a: 'The contract, notices, programme, variations, certification and contemporaneous project records are reviewed together. A sound assessment separates entitlement, evidence and valuation, then considers the contractual procedure and the commercial route for pursuing or defending the claim.' }
+    ]
+  }
+];
+
+const faqs = groups.flatMap((group) => group.questions);
+const description = 'Clear answers to common questions about business law, transactions, disputes, employment, real estate and construction matters in Dubai and the UAE.';
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({ '@type': 'Question', name: faq.q, acceptedAnswer: { '@type': 'Answer', text: faq.a } }))
+};
+---
+
+<InnerLayout title="Dubai Business Law FAQs | Bayline Legal" description={description} active="faq" structuredData={structuredData}>
+  <section class="inner-hero inner-hero--faq" aria-labelledby="faq-page-title">
+    <div class="faq-monogram" aria-hidden="true">?</div>
+    <div class="inner-hero__grid">
+      <h1 id="faq-page-title" data-hero-reveal>Answers before the first conversation.</h1>
+      <div class="inner-hero__intro" data-hero-reveal><p>These answers explain the usual starting point for common Dubai business-law questions. The correct advice depends on the documents, facts, parties and applicable UAE rules.</p><div class="inner-hero__meta"><span>Companies</span><span>Transactions</span><span>Disputes</span><span>People and property</span></div></div>
+    </div>
+  </section>
+
+  <section class="faq-page" aria-label="Frequently asked questions">
+    <nav class="faq-nav" aria-label="FAQ categories"><p>Browse topics</p>{groups.map((group, index) => <a href={`#${group.id}`} aria-current={index === 0 ? 'true' : 'false'}>{group.title}</a>)}</nav>
+    <div class="faq-groups">
+      {groups.map((group, groupIndex) => <section class="faq-group" id={group.id} aria-labelledby={`${group.id}-title`}><h2 id={`${group.id}-title`} data-text-reveal>{group.title}</h2>{group.questions.map((faq, index) => <details data-faq open={groupIndex === 0 && index === 0}><summary>{faq.q}<span aria-hidden="true">+</span></summary><p>{faq.a}</p></details>)}</section>)}
+    </div>
+  </section>
+
+  <section class="inner-section inner-section--mist" aria-labelledby="prepare-title">
+    <div class="section-heading"><h2 id="prepare-title" data-text-reveal>Make the first conversation useful.</h2><p>A clear starting brief helps the lawyer identify the issue, urgency and right first step without asking you to solve the legal question yourself.</p></div>
+    <div class="prepare-bento" data-bento>
+      <article><h3>Start with the outcome and the deadline.</h3><p>Explain what needs to happen, what must be avoided and when the position changes. The legal work can then be organised around the decision.</p></article>
+      <article><h3>Bring the controlling documents.</h3><p>Signed agreements, amendments, notices and the most important correspondence usually provide the best starting point.</p></article>
+      <article><h3>Build a short timeline.</h3><p>Dates, actions and decisions help separate the central issue from the background and reveal where evidence may be missing.</p></article>
+    </div>
+  </section>
+
+  <ContactCTA title="Your question may need context." copy="Send the key facts, documents and deadline. We will help you identify the right legal question and the next practical step." />
+</InnerLayout>

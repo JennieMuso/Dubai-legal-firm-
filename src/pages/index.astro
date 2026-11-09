@@ -1,5 +1,8 @@
 ---
 import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import ContactCTA from '../components/ContactCTA.astro';
 
 const services = [
   { title: 'Corporate & commercial', image: '/images/commercial-agreement.webp', alt: 'A bilingual commercial agreement under review', summary: 'Legal support for company structures, investment, governance and the agreements that keep business moving.', scope: 'Formation · Governance · Transactions' },
@@ -96,16 +99,7 @@ const structuredData = {
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="Bayline Legal home">
-        <svg viewBox="0 0 38 38" aria-hidden="true"><path d="M5 4h13c9 0 15 5 15 12 0 5-3 8-7 10 5 1 8 4 8 9h-9c0-4-3-6-8-6h-3v6H5V4Zm9 8v9h4c4 0 6-2 6-5s-2-4-6-4h-4Z" /></svg>
-        <span>Bayline Legal</span>
-      </a>
-      <nav aria-label="Main navigation"><a href="#services">Practice areas</a><a href="#about">About us</a><a href="#process">How we work</a><a href="#lawyers">Lawyers</a><a href="#faq">FAQs</a></nav>
-      <a class="header-action" href="mailto:hello@baylinelegal.ae?subject=Consultation%20request">Book a consultation</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
-      <div class="mobile-menu" id="mobile-menu" hidden><a href="#services">Practice areas</a><a href="#about">About us</a><a href="#process">How we work</a><a href="#lawyers">Lawyers</a><a href="#faq">FAQs</a><a href="#contact">Contact</a></div>
-    </header>
+    <SiteHeader isHome />
 
     <main id="main">
       <section class="hero" id="top" aria-labelledby="hero-title">
@@ -141,16 +135,13 @@ const structuredData = {
 
       <section class="services" id="services" aria-labelledby="services-title">
         <div class="services-intro"><h2 id="services-title">Business law.<br />Dubai focus.</h2><p>Connected advice for the contracts, relationships, property and people behind a business.</p></div>
-        <div class="service-layout">
-          <div class="service-sticky"><img src="/images/dubai-office.webp" alt="A green-stone office in Dubai overlooking the skyline" loading="lazy" /><p>From a first term sheet to a dispute that needs immediate direction, the advice stays focused on what the business must decide next.</p></div>
-          <div class="service-list">
+        <div class="service-bento">
             {services.map((service, index) => <article class="service-item" data-service>
               <img class="service-image" src={service.image} alt={service.alt} loading="lazy" />
               <span class="service-number">0{index + 1}</span>
               <div class="service-copy"><strong>{service.scope}</strong><h3>{service.title}</h3><p>{service.summary}</p></div>
               <a class="service-link" href="#contact" aria-label={`Discuss ${service.title}`}><svg class="action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M7 5h8v8" /></svg></a>
             </article>)}
-          </div>
         </div>
       </section>
 
@@ -200,23 +191,10 @@ const structuredData = {
         </div>
       </section>
 
-      <section class="contact" id="contact" aria-labelledby="contact-title">
-        <img class="contact-image" src="/images/dubai-office.webp" alt="Dubai office interior overlooking the skyline" loading="lazy" /><div class="contact-scrim"></div>
-        <div><h2 id="contact-title" data-reveal>Bring us the decision.</h2><p data-reveal>Tell us what is happening, what matters most and when you need to move. We will help you identify the legal path forward.</p></div>
-        <a class="primary-action primary-action--dark" data-reveal href="mailto:hello@baylinelegal.ae?subject=Confidential%20consultation%20request&body=Hello%20Bayline%20Legal%2C%0A%0AI%27d%20like%20to%20discuss%3A%0A%0AMy%20preferred%20contact%20details%20are%3A%0A">Request a consultation <svg class="action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M7 5h8v8" /></svg></a>
-      </section>
+      <ContactCTA />
     </main>
 
-    <footer>
-      <div class="footer-lead"><a class="brand" href="#top" aria-label="Bayline Legal home"><svg viewBox="0 0 38 38" aria-hidden="true"><path d="M5 4h13c9 0 15 5 15 12 0 5-3 8-7 10 5 1 8 4 8 9h-9c0-4-3-6-8-6h-3v6H5V4Zm9 8v9h4c4 0 6-2 6-5s-2-4-6-4h-4Z" /></svg><span>Bayline Legal</span></a><p>Commercial legal advice for clear decisions in Dubai.</p></div>
-      <div class="footer-columns">
-        <div><strong>Visit</strong><p>Business Bay<br />Dubai, United Arab Emirates</p></div>
-        <div><strong>Contact</strong><p><a href="mailto:hello@baylinelegal.ae">hello@baylinelegal.ae</a><br /><a href="tel:+97140000000">+971 4 000 0000</a></p></div>
-        <div><strong>Practice areas</strong><p><a href="#services">Corporate & commercial</a><br /><a href="#services">Commercial disputes</a><br /><a href="#services">Real estate & construction</a><br /><a href="#services">Employment & mobility</a></p></div>
-      </div>
-      <div class="footer-name" aria-hidden="true">BAYLINE</div>
-      <div class="footer-meta"><span>© {new Date().getFullYear()} Bayline Legal</span><span>Dubai, United Arab Emirates</span></div>
-    </footer>
+    <SiteFooter isHome />
   </body>
 </html>
 
