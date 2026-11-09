@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "deploy:cloudflare": "npm run build && wrangler pages deploy dist --project-name compay-dubai-firm"
+    "deploy:cloudflare": "npm run build && wrangler pages deploy dist --project-name barling-dubai-firm"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.5",
