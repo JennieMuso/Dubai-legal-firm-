@@ -2,10 +2,10 @@
 import '../styles/global.css';
 
 const services = [
-  { title: 'Corporate & commercial', image: '/images/commercial-agreement.webp', alt: 'A bilingual commercial agreement under review', summary: 'Legal support for company structures, investment, governance and the agreements that keep business moving.', scope: 'Company formation, shareholder agreements, commercial contracts, investment rounds and M&A.' },
-  { title: 'Commercial disputes', image: '/images/team.webp', alt: 'Lawyers reviewing documents and strategy together', summary: 'Early assessment and a practical strategy for negotiation, arbitration or litigation in the UAE.', scope: 'Contract disputes, debt recovery, shareholder claims, settlement strategy and representation.' },
-  { title: 'Real estate & construction', image: '/images/business-bay.webp', alt: 'Commercial architecture in Dubai Business Bay', summary: 'Commercially grounded advice for property transactions, developments, leases and project claims.', scope: 'Acquisitions, leasing, development agreements, contractor claims and payment disputes.' },
-  { title: 'Employment & mobility', image: '/images/counsel.webp', alt: 'Legal advisers in conversation in a Dubai office', summary: 'Clear employment frameworks for businesses managing people, change and cross-border work.', scope: 'Employment contracts, workplace policies, restructures, exits and mobility coordination.' }
+  { title: 'Corporate & commercial', image: '/images/commercial-agreement.webp', alt: 'A bilingual commercial agreement under review', summary: 'Legal support for company structures, investment, governance and the agreements that keep business moving.', scope: 'Formation · Governance · Transactions' },
+  { title: 'Commercial disputes', image: '/images/team.webp', alt: 'Lawyers reviewing documents and strategy together', summary: 'Early assessment and a practical strategy for negotiation, arbitration or litigation in the UAE.', scope: 'Negotiation · Arbitration · Litigation' },
+  { title: 'Real estate & construction', image: '/images/business-bay.webp', alt: 'Commercial architecture in Dubai Business Bay', summary: 'Commercially grounded advice for property transactions, developments, leases and project claims.', scope: 'Property · Projects · Claims' },
+  { title: 'Employment & mobility', image: '/images/counsel.webp', alt: 'Legal advisers in conversation in a Dubai office', summary: 'Clear employment frameworks for businesses managing people, change and cross-border work.', scope: 'Contracts · Policies · Mobility' }
 ];
 
 const process = [
@@ -19,7 +19,22 @@ const lawyers = [
   { name: 'Nadia Al Mansoori', role: 'Managing Partner', focus: 'Corporate & commercial', image: '/images/lawyer-nadia.webp' },
   { name: 'Omar Haddad', role: 'Partner', focus: 'Commercial disputes', image: '/images/lawyer-omar.webp' },
   { name: 'Priya Menon', role: 'Counsel', focus: 'Employment & mobility', image: '/images/lawyer-priya.webp' },
-  { name: 'Daniel Okafor', role: 'Counsel', focus: 'Real estate & construction', image: '/images/lawyer-daniel.webp' }
+  { name: 'Daniel Okafor', role: 'Counsel', focus: 'Real estate & construction', image: '/images/lawyer-daniel.webp' },
+  { name: 'Leila Rahman', role: 'Senior Associate', focus: 'Private client', image: '/images/lawyer-leila.webp' },
+  { name: 'James Mercer', role: 'Senior Associate', focus: 'International arbitration', image: '/images/lawyer-james.webp' },
+  { name: 'Aisha Khan', role: 'Associate', focus: 'Corporate & commercial', image: '/images/lawyer-aisha.webp' },
+  { name: 'Karim El-Sayed', role: 'Associate', focus: 'Construction & projects', image: '/images/lawyer-karim.webp' }
+];
+
+const testimonials = [
+  { quote: 'The team turned a complex shareholder issue into a clear sequence of decisions. We always knew the risk, the options and what needed to happen next.', role: 'Founder', company: 'Dubai technology company' },
+  { quote: 'Their contract review was commercially sharp and easy to act on. The final agreement protected the deal without slowing it down.', role: 'Managing Director', company: 'Regional trading group' },
+  { quote: 'We received a calm, realistic assessment of the dispute and a strategy that helped us reach a workable settlement before proceedings escalated.', role: 'General Counsel', company: 'Investment business' },
+  { quote: 'Bayline coordinated the legal work around our Dubai entry with clarity. Structure, employment and contracts were handled as one connected project.', role: 'Chief Operating Officer', company: 'International consultancy' },
+  { quote: 'The advice was direct and practical. Every call ended with clear responsibilities, timing and the commercial point behind each legal step.', role: 'Finance Director', company: 'Construction company' },
+  { quote: 'They understood the pressure around the transaction and kept the documents moving without losing sight of the protections that mattered.', role: 'Private investor', company: 'United Arab Emirates' },
+  { quote: 'The employment advice balanced the legal position with the reality of managing people across several markets. It was thoughtful and usable.', role: 'People Director', company: 'Regional services group' },
+  { quote: 'From the first review to final negotiation, communication was precise and responsive. We could make decisions with confidence.', role: 'Asset Manager', company: 'Dubai real estate business' }
 ];
 
 const faqs = [
@@ -86,10 +101,10 @@ const structuredData = {
         <svg viewBox="0 0 38 38" aria-hidden="true"><path d="M5 4h13c9 0 15 5 15 12 0 5-3 8-7 10 5 1 8 4 8 9h-9c0-4-3-6-8-6h-3v6H5V4Zm9 8v9h4c4 0 6-2 6-5s-2-4-6-4h-4Z" /></svg>
         <span>Bayline Legal</span>
       </a>
-      <nav aria-label="Main navigation"><a href="#services">Services</a><a href="#process">Process</a><a href="#lawyers">Lawyers</a><a href="#faq">FAQs</a></nav>
-      <a class="header-action" href="mailto:hello@baylinelegal.ae?subject=Confidential%20consultation%20request">Speak with a lawyer</a>
+      <nav aria-label="Main navigation"><a href="#services">Practice areas</a><a href="#about">About us</a><a href="#process">How we work</a><a href="#lawyers">Lawyers</a><a href="#faq">FAQs</a></nav>
+      <a class="header-action" href="mailto:hello@baylinelegal.ae?subject=Consultation%20request">Book a consultation</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
-      <div class="mobile-menu" id="mobile-menu" hidden><a href="#services">Services</a><a href="#process">Process</a><a href="#lawyers">Lawyers</a><a href="#approach">Approach</a><a href="#faq">FAQs</a><a href="#contact">Contact</a></div>
+      <div class="mobile-menu" id="mobile-menu" hidden><a href="#services">Practice areas</a><a href="#about">About us</a><a href="#process">How we work</a><a href="#lawyers">Lawyers</a><a href="#faq">FAQs</a><a href="#contact">Contact</a></div>
     </header>
 
     <main id="main">
@@ -99,7 +114,7 @@ const structuredData = {
         <div class="hero-copy">
           <h1 id="hero-title">Dubai business law.<br />Clear next steps.</h1>
           <p>Commercial legal advice for companies, founders, investors and private clients navigating decisions in the UAE.</p>
-          <a class="primary-action primary-action--light" href="mailto:hello@baylinelegal.ae?subject=Confidential%20consultation%20request">Discuss your matter <span aria-hidden="true">↗</span></a>
+          <a class="primary-action primary-action--light" href="mailto:hello@baylinelegal.ae?subject=Confidential%20consultation%20request">Discuss your matter <svg class="action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M7 5h8v8" /></svg></a>
         </div>
         <div class="hero-facts" aria-label="Firm overview">
           <p><strong>Business Bay</strong><span>Dubai, UAE</span></p>
@@ -115,12 +130,12 @@ const structuredData = {
         <div class="proof-stat"><strong><span data-count="98">98</span>%</strong><span>Client satisfaction<br />rate</span></div>
       </section>
 
-      <section class="position" aria-labelledby="position-title">
+      <section class="position" id="about" aria-labelledby="position-title">
         <div class="position-note" data-reveal><p>Legal advice should make the commercial decision easier to see, explain and act on.</p><img src="/images/commercial-agreement.webp" alt="A bilingual commercial agreement being reviewed" loading="lazy" /></div>
         <div class="position-answer">
           <h2 id="position-title" data-reveal>Counsel for the decision.</h2>
           <p data-reveal>Bayline Legal is a Dubai business law firm advising on corporate transactions, commercial disputes, real estate, construction and employment matters. We begin with the outcome you need, identify the legal and commercial risks, and set out the next practical steps.</p>
-          <a class="inline-action" data-reveal href="#services">See how we can help <span aria-hidden="true">↓</span></a>
+          <a class="primary-action primary-action--green" data-reveal href="mailto:hello@baylinelegal.ae?subject=Consultation%20request">Book a consultation <svg class="action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M7 5h8v8" /></svg></a>
         </div>
       </section>
 
@@ -130,9 +145,10 @@ const structuredData = {
           <div class="service-sticky"><img src="/images/dubai-office.webp" alt="A green-stone office in Dubai overlooking the skyline" loading="lazy" /><p>From a first term sheet to a dispute that needs immediate direction, the advice stays focused on what the business must decide next.</p></div>
           <div class="service-list">
             {services.map((service, index) => <article class="service-item" data-service>
-              <div class="service-image"><img src={service.image} alt={service.alt} loading="lazy" /></div>
-              <div class="service-number">0{index + 1}</div>
-              <div class="service-copy"><h3>{service.title}</h3><p>{service.summary}</p><strong>{service.scope}</strong></div>
+              <img class="service-image" src={service.image} alt={service.alt} loading="lazy" />
+              <span class="service-number">0{index + 1}</span>
+              <div class="service-copy"><strong>{service.scope}</strong><h3>{service.title}</h3><p>{service.summary}</p></div>
+              <a class="service-link" href="#contact" aria-label={`Discuss ${service.title}`}><svg class="action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M7 5h8v8" /></svg></a>
             </article>)}
           </div>
         </div>
@@ -148,7 +164,7 @@ const structuredData = {
       <section class="lawyers" id="lawyers" aria-labelledby="lawyers-title">
         <div class="lawyers-heading"><span>Meet the lawyers</span><h2 id="lawyers-title">The lawyers behind the advice.</h2><p>Direct access to experienced counsel, with the right practice focus brought into each matter.</p></div>
         <div class="lawyer-grid">
-          {lawyers.map((lawyer) => <article class="lawyer-card" data-image-reveal><div class="lawyer-image"><img src={lawyer.image} alt={`${lawyer.name}, ${lawyer.role}`} loading="lazy" /></div><div class="lawyer-meta"><div><h3>{lawyer.name}</h3><p>{lawyer.role}</p></div><span>{lawyer.focus}</span></div></article>)}
+          {lawyers.map((lawyer) => <article class="lawyer-card" data-image-reveal><img src={lawyer.image} alt={`${lawyer.name}, ${lawyer.role}`} loading="lazy" /><div class="lawyer-scrim"></div><div class="lawyer-meta"><h3>{lawyer.name}</h3><p>{lawyer.role}</p><span>{lawyer.focus}</span></div></article>)}
         </div>
       </section>
 
@@ -170,6 +186,13 @@ const structuredData = {
         <div class="place-copy"><h2 id="place-title">Business Bay.<br />Global outlook.</h2><p>Dubai-based counsel for matters that cross industries, jurisdictions and time zones.</p></div>
       </section>
 
+      <section class="testimonials" aria-labelledby="testimonials-title">
+        <div class="testimonials-heading"><div><span>Client perspectives</span><h2 id="testimonials-title">Clarity people remember.</h2></div><p>What clients value most is advice they can understand, use and trust when the decision matters.</p><div class="carousel-controls"><button type="button" data-carousel-prev aria-label="Show previous testimonials">←</button><button type="button" data-carousel-next aria-label="Show next testimonials">→</button></div></div>
+        <div class="testimonial-track" data-carousel-track tabindex="0" aria-label="Client testimonials">
+          {testimonials.map((testimonial) => <article class="testimonial-card"><span aria-hidden="true">“</span><blockquote>{testimonial.quote}</blockquote><div class="testimonial-author"><strong>{testimonial.role}</strong><small>{testimonial.company}</small></div></article>)}
+        </div>
+      </section>
+
       <section class="faq" id="faq" aria-labelledby="faq-title">
         <div class="faq-intro"><h2 id="faq-title">Dubai law.<br />Clear answers.</h2><p>Brief answers to common questions from businesses and investors. Specific advice depends on the facts of each matter.</p></div>
         <div class="faq-list">
@@ -178,8 +201,9 @@ const structuredData = {
       </section>
 
       <section class="contact" id="contact" aria-labelledby="contact-title">
+        <img class="contact-image" src="/images/dubai-office.webp" alt="Dubai office interior overlooking the skyline" loading="lazy" /><div class="contact-scrim"></div>
         <div><h2 id="contact-title" data-reveal>Bring us the decision.</h2><p data-reveal>Tell us what is happening, what matters most and when you need to move. We will help you identify the legal path forward.</p></div>
-        <a class="primary-action primary-action--dark" data-reveal href="mailto:hello@baylinelegal.ae?subject=Confidential%20consultation%20request&body=Hello%20Bayline%20Legal%2C%0A%0AI%27d%20like%20to%20discuss%3A%0A%0AMy%20preferred%20contact%20details%20are%3A%0A">Request a consultation <span aria-hidden="true">↗</span></a>
+        <a class="primary-action primary-action--dark" data-reveal href="mailto:hello@baylinelegal.ae?subject=Confidential%20consultation%20request&body=Hello%20Bayline%20Legal%2C%0A%0AI%27d%20like%20to%20discuss%3A%0A%0AMy%20preferred%20contact%20details%20are%3A%0A">Request a consultation <svg class="action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M7 5h8v8" /></svg></a>
       </section>
     </main>
 
@@ -188,7 +212,7 @@ const structuredData = {
       <div class="footer-columns">
         <div><strong>Visit</strong><p>Business Bay<br />Dubai, United Arab Emirates</p></div>
         <div><strong>Contact</strong><p><a href="mailto:hello@baylinelegal.ae">hello@baylinelegal.ae</a><br /><a href="tel:+97140000000">+971 4 000 0000</a></p></div>
-        <div><strong>Services</strong><p><a href="#services">Corporate & commercial</a><br /><a href="#services">Commercial disputes</a><br /><a href="#services">Real estate & construction</a><br /><a href="#services">Employment & mobility</a></p></div>
+        <div><strong>Practice areas</strong><p><a href="#services">Corporate & commercial</a><br /><a href="#services">Commercial disputes</a><br /><a href="#services">Real estate & construction</a><br /><a href="#services">Employment & mobility</a></p></div>
       </div>
       <div class="footer-name" aria-hidden="true">BAYLINE</div>
       <div class="footer-meta"><span>© {new Date().getFullYear()} Bayline Legal</span><span>Dubai, United Arab Emirates</span></div>

@@ -34,14 +34,70 @@ menu?.querySelectorAll('a').forEach((link) => {
   });
 });
 
-document.querySelectorAll('[data-faq]').forEach((item) => {
-  item.addEventListener('toggle', () => {
-    if (!(item instanceof HTMLDetailsElement) || !item.open) return;
-    document.querySelectorAll('[data-faq]').forEach((other) => {
-      if (other instanceof HTMLDetailsElement && other !== item) other.open = false;
-    });
+const faqItems = [...document.querySelectorAll('[data-faq]')].filter((item) => item instanceof HTMLDetailsElement);
+
+/** @param {HTMLDetailsElement} item @param {boolean} opening */
+function animateFaq(item, opening) {
+  const summary = item.querySelector('summary');
+  if (!summary || item.dataset.animating === 'true') return;
+  if (reducedMotion) {
+    item.open = opening;
+    return;
+  }
+
+  const startHeight = item.offsetHeight;
+  const styles = getComputedStyle(item);
+  const collapsedHeight = summary.offsetHeight + parseFloat(styles.paddingTop) + parseFloat(styles.paddingBottom);
+  if (opening) item.open = true;
+  const endHeight = opening ? item.offsetHeight : collapsedHeight;
+
+  item.dataset.animating = 'true';
+  item.style.overflow = 'hidden';
+  const animation = item.animate(
+    { height: [`${startHeight}px`, `${endHeight}px`] },
+    { duration: 360, easing: 'cubic-bezier(.16, 1, .3, 1)' }
+  );
+  animation.onfinish = () => {
+    item.open = opening;
+    item.style.removeProperty('overflow');
+    delete item.dataset.animating;
+  };
+  animation.oncancel = animation.onfinish;
+}
+
+faqItems.forEach((item) => {
+  item.querySelector('summary')?.addEventListener('click', (event) => {
+    event.preventDefault();
+    const opening = !item.open;
+    if (opening) faqItems.forEach((other) => { if (other !== item && other.open) animateFaq(other, false); });
+    animateFaq(item, opening);
   });
 });
+
+/** @type {HTMLElement | null} */
+const testimonialTrack = document.querySelector('[data-carousel-track]');
+/** @type {HTMLButtonElement | null} */
+const previousTestimonial = document.querySelector('[data-carousel-prev]');
+/** @type {HTMLButtonElement | null} */
+const nextTestimonial = document.querySelector('[data-carousel-next]');
+
+function updateCarouselControls() {
+  if (!testimonialTrack || !previousTestimonial || !nextTestimonial) return;
+  previousTestimonial.disabled = testimonialTrack.scrollLeft < 4;
+  nextTestimonial.disabled = testimonialTrack.scrollLeft + testimonialTrack.clientWidth >= testimonialTrack.scrollWidth - 4;
+}
+
+/** @param {number} direction */
+function moveTestimonials(direction) {
+  if (!testimonialTrack) return;
+  testimonialTrack.scrollBy({ left: direction * (testimonialTrack.clientWidth + 16), behavior: reducedMotion ? 'auto' : 'smooth' });
+}
+
+previousTestimonial?.addEventListener('click', () => moveTestimonials(-1));
+nextTestimonial?.addEventListener('click', () => moveTestimonials(1));
+testimonialTrack?.addEventListener('scroll', updateCarouselControls, { passive: true });
+window.addEventListener('resize', updateCarouselControls);
+updateCarouselControls();
 
 if (!reducedMotion) {
   gsap.registerPlugin(ScrollTrigger);
@@ -72,10 +128,10 @@ if (!reducedMotion) {
   });
 
   gsap.utils.toArray('[data-service]').forEach((panel, index, panels) => {
-    const image = panel.querySelector('.service-image img');
+    const image = panel.querySelector('.service-image');
     if (image) gsap.from(image, { yPercent: 10, scale: 1.08, duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: panel, start: 'top 82%', once: true }, clearProps: 'transform' });
     if (index === panels.length - 1) return;
-    gsap.to(panel, { scale: .965, opacity: .48, ease: 'none', scrollTrigger: { trigger: panel, start: 'top 8%', end: 'bottom 12%', scrub: true } });
+    gsap.to(panel, { opacity: .62, ease: 'none', scrollTrigger: { trigger: panel, start: 'top 8%', end: 'bottom 12%', scrub: true } });
   });
 
   document.querySelectorAll('[data-process-step]').forEach((step) => {
@@ -83,4 +139,5 @@ if (!reducedMotion) {
   });
 
   gsap.to('.place > img', { scale: 1.08, ease: 'none', scrollTrigger: { trigger: '.place', start: 'top bottom', end: 'bottom top', scrub: true } });
+  gsap.to('.contact-image', { scale: 1.08, ease: 'none', scrollTrigger: { trigger: '.contact', start: 'top bottom', end: 'bottom top', scrub: true } });
 }
