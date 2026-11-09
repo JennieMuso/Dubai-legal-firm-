@@ -5,8 +5,8 @@ import { lawyers } from '../../data/lawyers';
 import '../../styles/profile.css';
 ---
 <InnerLayout title="Our Lawyers | Bayline Legal Dubai" description="Meet the Bayline Legal team in Dubai and explore their practice areas and professional profiles." active="lawyers">
-  <section class="team-hero"><img src="/images/team.webp" alt="Legal team reviewing a business matter" fetchpriority="high" /><div class="team-hero__shade"></div><div class="team-hero__content"><h1 data-hero-reveal>The people behind the advice.</h1><p>Different perspectives. One shared standard: direct counsel shaped around the decision in front of you.</p></div></section>
-  <section class="inner-section team-intro"><h2 data-text-reveal>Meet your legal team.</h2><p>Explore each lawyer’s focus, experience and approach to a matter. These profiles are illustrative for the client showcase.</p></section>
+  <section class="team-hero"><img src="/images/team.webp" alt="Legal team reviewing a business matter" fetchpriority="high" /><div class="team-hero__shade"></div><div class="team-hero__content"><h1 data-hero-reveal>People behind<br />the advice.</h1><p>Different perspectives. One shared standard: direct counsel shaped around the decision in front of you.</p></div></section>
+  <section class="inner-section team-intro"><h2 data-text-reveal>Meet your legal team.</h2><p>Explore each lawyer’s focus, experience and approach to a matter.</p></section>
   <section class="inner-section team-section"><div class="team-grid" data-bento>{lawyers.map(lawyer=><a class="team-card" href={`/lawyers/${lawyer.slug}/`}><img src={lawyer.image} alt={`Portrait of ${lawyer.name}`} loading="lazy" /><span class="team-card__shade"></span><span class="team-card__content"><strong>{lawyer.name}</strong><small>{lawyer.role}</small><small>{lawyer.focus}</small></span><span class="team-card__arrow" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M5 15 15 5M7 5h8v8" /></svg></span></a>)}</div></section>
   <ContactCTA title="Find the right counsel." copy="Tell us what you need to decide. We will connect you with the lawyer best placed to help." />
 </InnerLayout>
