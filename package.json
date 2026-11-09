@@ -5,12 +5,14 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "deploy:cloudflare": "npm run build && wrangler pages deploy dist --project-name compay-dubai-firm"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.5",
     "astro": "^5.15.3",
     "gsap": "^3.13.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "wrangler": "^4.158.0"
   }
 }
