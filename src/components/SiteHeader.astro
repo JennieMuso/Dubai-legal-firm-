@@ -1,11 +1,11 @@
 ---
-interface Props { isHome?: boolean; active?: 'practice' | 'about' | 'process' | 'faq'; }
-const { isHome = false, active } = Astro.props;
+interface Props { isHome?: boolean; active?: 'practice' | 'about' | 'process' | 'faq' | 'lawyers'; }
+const { active } = Astro.props;
 const links = [
   { label: 'Practice areas', href: '/practice-areas/', id: 'practice' },
   { label: 'About us', href: '/about/', id: 'about' },
   { label: 'How we work', href: '/how-we-work/', id: 'process' },
-  { label: 'Lawyers', href: isHome ? '#lawyers' : '/#lawyers' },
+  { label: 'Lawyers', href: '/lawyers/', id: 'lawyers' },
   { label: 'FAQs', href: '/faq/', id: 'faq' }
 ];
 ---
