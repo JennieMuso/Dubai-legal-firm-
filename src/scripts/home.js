@@ -17,21 +17,46 @@ window.setInterval(updateDubaiTime, 30_000);
 const toggle = document.querySelector('.menu-toggle');
 /** @type {HTMLElement | null} */
 const menu = document.querySelector('#mobile-menu');
+/** @type {HTMLElement | null} */
+const header = document.querySelector('.site-header');
+/** @type {HTMLElement | null} */
+const pageHero = document.querySelector('.hero, .inner-hero, .consult-hero, .team-hero, .profile-hero');
+
+function updateHeaderState() {
+  if (!header) return;
+  const threshold = pageHero ? pageHero.offsetTop + pageHero.offsetHeight - header.offsetHeight : 24;
+  header.classList.toggle('site-header--scrolled', window.scrollY >= threshold);
+}
+
+function closeMenu() {
+  if (!menu || !toggle) return;
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.setAttribute('aria-label', 'Open menu');
+  menu.hidden = true;
+  header?.classList.remove('site-header--menu-open');
+  document.body.classList.remove('menu-open');
+}
+
+window.addEventListener('scroll', updateHeaderState, { passive: true });
+window.addEventListener('resize', updateHeaderState);
+updateHeaderState();
 
 toggle?.addEventListener('click', () => {
   if (!menu) return;
   const open = toggle.getAttribute('aria-expanded') === 'true';
   toggle.setAttribute('aria-expanded', String(!open));
+  toggle.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
   menu.hidden = open;
+  header?.classList.toggle('site-header--menu-open', !open);
   document.body.classList.toggle('menu-open', !open);
 });
 
 menu?.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-    toggle?.setAttribute('aria-expanded', 'false');
-    menu.hidden = true;
-    document.body.classList.remove('menu-open');
-  });
+  link.addEventListener('click', closeMenu);
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeMenu();
 });
 
 const faqItems = [...document.querySelectorAll('[data-faq]')].filter((item) => item instanceof HTMLDetailsElement);

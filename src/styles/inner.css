@@ -11,11 +11,12 @@
 .inner-hero__image { position: absolute; inset: 0; }
 .inner-hero__image img { height: 100%; object-fit: cover; image-rendering: auto; }
 .inner-hero__image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(2,38,29,.95) 0%, rgba(2,38,29,.78) 46%, rgba(2,38,29,.24) 100%); }
-.inner-hero--faq { min-height: 76svh; background: var(--mist); color: var(--forest); }
+.inner-hero--faq { min-height: 76svh; background: var(--forest-dark); color: var(--white); }
 .inner-hero--faq .inner-hero__grid { grid-template-columns: 1.2fr .8fr; }
-.inner-hero--faq .inner-hero__intro { color: var(--ink); }
-.inner-hero--faq .inner-hero__meta { color: var(--green); }
-.faq-monogram { position: absolute; right: var(--pad); bottom: -8vw; color: var(--mint); font-size: 31vw; font-weight: 700; line-height: .75; letter-spacing: -.13em; user-select: none; }
+.inner-hero--faq .inner-hero__image::after { background: linear-gradient(90deg, rgba(2,38,29,.92), rgba(2,38,29,.48)); }
+.inner-hero--faq .inner-hero__intro { color: var(--white); }
+.inner-hero--faq .inner-hero__meta { color: var(--mint); }
+.faq-monogram { position: absolute; z-index: 1; right: var(--pad); bottom: -8vw; color: rgba(223,236,230,.16); font-size: 31vw; font-weight: 700; line-height: .75; letter-spacing: -.13em; user-select: none; }
 
 .inner-section { padding: clamp(5rem, 8vw, 8rem) var(--pad); }
 .inner-section--mist { background: var(--mist); }
@@ -53,13 +54,15 @@
 .principle-list strong { color: var(--green); font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; }
 .principle-list p { max-width: 38rem; }
 
-.context-bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: 18rem; gap: 1rem; }
-.context-bento article { padding: clamp(1.75rem, 3vw, 3rem); display: flex; flex-direction: column; justify-content: space-between; background: var(--white); color: var(--ink); }
-.context-bento article:nth-child(1) { grid-column: span 7; grid-row: span 2; background: var(--green); color: var(--white); }
-.context-bento article:nth-child(2), .context-bento article:nth-child(3) { grid-column: span 5; }
-.context-bento article:nth-child(4) { grid-column: span 12; display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 4rem; background: var(--mint); }
-.context-bento h3 { max-width: 12ch; font-size: clamp(2rem, 3.5vw, 3.5rem); }
-.context-bento p { max-width: 37rem; }
+.context-bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: 34rem; gap: 1rem; }
+.context-bento article { position: relative; isolation: isolate; overflow: hidden; padding: clamp(2rem, 3.5vw, 3.5rem); display: flex; flex-direction: column; justify-content: space-between; background-position: center; background-size: cover; color: var(--white); }
+.context-bento article::before { content: ''; position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.08) 22%, rgba(0,0,0,.86) 100%); }
+.context-bento article:nth-child(1) { grid-column: span 7; background-image: url('/images/team.webp'); }
+.context-bento article:nth-child(2) { grid-column: span 5; background-image: url('/images/commercial-agreement.webp'); }
+.context-bento article:nth-child(3) { grid-column: 1 / span 5; background-image: url('/images/counsel.webp'); }
+.context-bento article:nth-child(4) { grid-column: span 7; background-image: url('/images/business-bay.webp'); }
+.context-bento h3 { max-width: 13ch; font-size: clamp(2.2rem, 3.8vw, 4rem); }
+.context-bento p { max-width: 37rem; color: rgba(255,255,255,.86); }
 .about-context .section-heading { grid-template-columns: 1.5fr .5fr; }
 .about-context .section-heading h2 { max-width: 17ch; }
 
