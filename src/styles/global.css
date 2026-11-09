@@ -82,7 +82,7 @@ h1, h2, h3 { font-weight: 500; letter-spacing: -.055em; line-height: .94; text-w
 .service-sticky img { height: 58vh; object-fit: cover; object-position: center; }
 .service-sticky p { max-width: 34rem; padding: 2.5rem; font-size: 1.15rem; }
 .service-list { display: grid; gap: 1.25rem; }
-.service-item { position: relative; height: clamp(38rem, 76vh, 48rem); overflow: hidden; background: var(--green); color: var(--white); transform-origin: center top; }
+.service-item { position: relative; height: clamp(44rem, 86vh, 56rem); overflow: hidden; background: var(--green); color: var(--white); transform-origin: center top; }
 .service-item::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(2, 30, 23, 0) 0%, rgba(2, 30, 23, 0) 50%, rgba(2, 30, 23, .72) 78%, rgba(2, 30, 23, .94) 100%); transition: opacity .35s ease; }
 .service-item:hover::after { opacity: .96; }
 .service-image { position: absolute; inset: 0; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
@@ -101,7 +101,7 @@ h1, h2, h3 { font-weight: 500; letter-spacing: -.055em; line-height: .94; text-w
 .process { display: grid; grid-template-columns: 1.08fr .92fr; min-height: 46rem; padding: var(--pad); gap: 1rem; background: #0b0e0d; color: var(--white); }
 .process-visual { position: sticky; top: 1rem; height: calc(100vh - 2rem); min-height: 44rem; overflow: hidden; }
 .process-visual > img { position: absolute; inset: 0; height: 100%; object-fit: cover; }
-.process-shade { position: absolute; inset: 0; background: rgba(0,0,0,.6); }
+.process-shade { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(2, 20, 15, 0) 0%, rgba(2, 20, 15, 0) 50%, rgba(2, 20, 15, .72) 78%, rgba(2, 20, 15, .95) 100%); }
 .process-copy { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(2rem, 4vw, 4rem); }
 .process-copy > span, .lawyers-heading > span { margin-bottom: 1.5rem; font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; }
 .process-copy h2 { max-width: 12ch; font-size: clamp(2.8rem, 4.5vw, 4.25rem); }
@@ -118,10 +118,10 @@ h1, h2, h3 { font-weight: 500; letter-spacing: -.055em; line-height: .94; text-w
 .lawyers-heading h2 { max-width: 14ch; color: var(--forest); font-size: clamp(3rem, 5vw, 4rem); }
 .lawyers-heading p { max-width: 27rem; }
 .lawyer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-.lawyer-card { position: relative; overflow: hidden; aspect-ratio: 3 / 4; background: var(--mint); color: var(--white); }
+.lawyer-card { position: relative; overflow: hidden; aspect-ratio: 2 / 3; background: var(--mint); color: var(--white); }
 .lawyer-card > img { position: absolute; inset: 0; height: 100%; object-fit: cover; object-position: center; transition: transform .7s var(--ease); }
 .lawyer-card:hover > img { transform: scale(1.035); }
-.lawyer-scrim { position: absolute; z-index: 1; inset: auto 0 0; height: 42%; background: rgba(2, 30, 23, .76); }
+.lawyer-scrim { position: absolute; z-index: 1; inset: 0; background: linear-gradient(to bottom, rgba(2, 30, 23, 0) 0%, rgba(2, 30, 23, 0) 50%, rgba(2, 30, 23, .7) 78%, rgba(2, 30, 23, .94) 100%); }
 .lawyer-meta { position: absolute; z-index: 2; inset: auto 0 0; padding: 1.5rem; }
 .lawyer-meta h3 { font-size: clamp(1.45rem, 1.8vw, 1.85rem); line-height: 1.05; }
 .lawyer-meta p { margin-top: .4rem; font-size: .9rem; }
@@ -225,7 +225,7 @@ footer { padding: 5rem var(--pad) 2rem; overflow: hidden; background: var(--fore
   .service-sticky { position: relative; top: auto; min-height: auto; }
   .service-sticky img { height: 72vh; }
   .service-sticky p { padding: 2rem 1.5rem; }
-  .service-item { height: clamp(34rem, 75vh, 42rem); min-height: 0; }
+  .service-item { height: clamp(40rem, 82vh, 48rem); min-height: 0; }
   .service-copy { display: block; padding: 1.75rem 5.75rem 1.75rem 1.75rem; }
   .service-item h3 { max-width: 100%; font-size: clamp(2.4rem, 9vw, 3.6rem); }
   .service-copy > p { margin-top: 1rem; }
@@ -272,7 +272,7 @@ footer { padding: 5rem var(--pad) 2rem; overflow: hidden; background: var(--fore
   .proof-stat { flex-direction: row; align-items: end; }
   .proof-stat > span { text-align: right; }
   .lawyer-grid { grid-template-columns: 1fr; }
-  .lawyer-card { aspect-ratio: 4 / 5; }
+  .lawyer-card { aspect-ratio: 3 / 4; }
   .testimonials-heading { grid-template-columns: 1fr; }
   .carousel-controls { grid-column: 1; grid-row: auto; }
   .testimonials-heading > p { grid-column: 1; grid-row: auto; }
