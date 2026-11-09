@@ -83,7 +83,7 @@ h1, h2, h3 { font-weight: 500; letter-spacing: -.055em; line-height: .94; text-w
 .service-sticky p { max-width: 34rem; padding: 2.5rem; font-size: 1.15rem; }
 .service-list { display: grid; gap: 1.25rem; }
 .service-item { position: relative; height: clamp(44rem, 86vh, 56rem); overflow: hidden; background: var(--green); color: var(--white); transform-origin: center top; }
-.service-item::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(2, 30, 23, 0) 0%, rgba(2, 30, 23, 0) 50%, rgba(2, 30, 23, .72) 78%, rgba(2, 30, 23, .94) 100%); transition: opacity .35s ease; }
+.service-item::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .68) 78%, rgba(0, 0, 0, .92) 100%); transition: opacity .35s ease; }
 .service-item:hover::after { opacity: .96; }
 .service-image { position: absolute; inset: 0; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
 .service-item:hover .service-image { transform: scale(1.035); }
@@ -101,7 +101,7 @@ h1, h2, h3 { font-weight: 500; letter-spacing: -.055em; line-height: .94; text-w
 .process { display: grid; grid-template-columns: 1.08fr .92fr; min-height: 46rem; padding: var(--pad); gap: 1rem; background: #0b0e0d; color: var(--white); }
 .process-visual { position: sticky; top: 1rem; height: calc(100vh - 2rem); min-height: 44rem; overflow: hidden; }
 .process-visual > img { position: absolute; inset: 0; height: 100%; object-fit: cover; }
-.process-shade { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(2, 20, 15, 0) 0%, rgba(2, 20, 15, 0) 50%, rgba(2, 20, 15, .72) 78%, rgba(2, 20, 15, .95) 100%); }
+.process-shade { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .7) 78%, rgba(0, 0, 0, .94) 100%); }
 .process-copy { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(2rem, 4vw, 4rem); }
 .process-copy > span, .lawyers-heading > span { margin-bottom: 1.5rem; font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; }
 .process-copy h2 { max-width: 12ch; font-size: clamp(2.8rem, 4.5vw, 4.25rem); }
@@ -121,7 +121,7 @@ h1, h2, h3 { font-weight: 500; letter-spacing: -.055em; line-height: .94; text-w
 .lawyer-card { position: relative; overflow: hidden; aspect-ratio: 2 / 3; background: var(--mint); color: var(--white); }
 .lawyer-card > img { position: absolute; inset: 0; height: 100%; object-fit: cover; object-position: center; transition: transform .7s var(--ease); }
 .lawyer-card:hover > img { transform: scale(1.035); }
-.lawyer-scrim { position: absolute; z-index: 1; inset: 0; background: linear-gradient(to bottom, rgba(2, 30, 23, 0) 0%, rgba(2, 30, 23, 0) 50%, rgba(2, 30, 23, .7) 78%, rgba(2, 30, 23, .94) 100%); }
+.lawyer-scrim { position: absolute; z-index: 1; inset: 0; background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .68) 78%, rgba(0, 0, 0, .92) 100%); }
 .lawyer-meta { position: absolute; z-index: 2; inset: auto 0 0; padding: 1.5rem; }
 .lawyer-meta h3 { font-size: clamp(1.45rem, 1.8vw, 1.85rem); line-height: 1.05; }
 .lawyer-meta p { margin-top: .4rem; font-size: .9rem; }
