@@ -2,10 +2,24 @@
 import '../styles/global.css';
 
 const services = [
-  { title: 'Corporate & commercial', summary: 'Legal support for company structures, investment, governance and the agreements that keep business moving.', scope: 'Company formation, shareholder agreements, commercial contracts, investment rounds and M&A.' },
-  { title: 'Commercial disputes', summary: 'Early assessment and a practical strategy for negotiation, arbitration or litigation in the UAE.', scope: 'Contract disputes, debt recovery, shareholder claims, settlement strategy and representation.' },
-  { title: 'Real estate & construction', summary: 'Commercially grounded advice for property transactions, developments, leases and project claims.', scope: 'Acquisitions, leasing, development agreements, contractor claims and payment disputes.' },
-  { title: 'Employment & mobility', summary: 'Clear employment frameworks for businesses managing people, change and cross-border work.', scope: 'Employment contracts, workplace policies, restructures, exits and mobility coordination.' }
+  { title: 'Corporate & commercial', image: '/images/commercial-agreement.webp', alt: 'A bilingual commercial agreement under review', summary: 'Legal support for company structures, investment, governance and the agreements that keep business moving.', scope: 'Company formation, shareholder agreements, commercial contracts, investment rounds and M&A.' },
+  { title: 'Commercial disputes', image: '/images/team.webp', alt: 'Lawyers reviewing documents and strategy together', summary: 'Early assessment and a practical strategy for negotiation, arbitration or litigation in the UAE.', scope: 'Contract disputes, debt recovery, shareholder claims, settlement strategy and representation.' },
+  { title: 'Real estate & construction', image: '/images/business-bay.webp', alt: 'Commercial architecture in Dubai Business Bay', summary: 'Commercially grounded advice for property transactions, developments, leases and project claims.', scope: 'Acquisitions, leasing, development agreements, contractor claims and payment disputes.' },
+  { title: 'Employment & mobility', image: '/images/counsel.webp', alt: 'Legal advisers in conversation in a Dubai office', summary: 'Clear employment frameworks for businesses managing people, change and cross-border work.', scope: 'Employment contracts, workplace policies, restructures, exits and mobility coordination.' }
+];
+
+const process = [
+  { number: '01', title: 'Consultation & understanding', copy: 'We listen first: the decision, the commercial objective, the deadline and the facts that may change the legal position.' },
+  { number: '02', title: 'Review & strategy', copy: 'We assess the documents, applicable UAE rules and practical options, then explain the material risks and trade-offs.' },
+  { number: '03', title: 'Action & representation', copy: 'We prepare, negotiate or represent with a clear plan, defined responsibilities and direct communication throughout.' },
+  { number: '04', title: 'Resolution & follow-through', copy: 'We close the immediate matter and identify the contractual, governance or operational steps that should follow.' }
+];
+
+const lawyers = [
+  { name: 'Nadia Al Mansoori', role: 'Managing Partner', focus: 'Corporate & commercial', image: '/images/lawyer-nadia.webp' },
+  { name: 'Omar Haddad', role: 'Partner', focus: 'Commercial disputes', image: '/images/lawyer-omar.webp' },
+  { name: 'Priya Menon', role: 'Counsel', focus: 'Employment & mobility', image: '/images/lawyer-priya.webp' },
+  { name: 'Daniel Okafor', role: 'Counsel', focus: 'Real estate & construction', image: '/images/lawyer-daniel.webp' }
 ];
 
 const faqs = [
@@ -72,10 +86,10 @@ const structuredData = {
         <svg viewBox="0 0 38 38" aria-hidden="true"><path d="M5 4h13c9 0 15 5 15 12 0 5-3 8-7 10 5 1 8 4 8 9h-9c0-4-3-6-8-6h-3v6H5V4Zm9 8v9h4c4 0 6-2 6-5s-2-4-6-4h-4Z" /></svg>
         <span>Bayline Legal</span>
       </a>
-      <nav aria-label="Main navigation"><a href="#services">Services</a><a href="#approach">Approach</a><a href="#faq">FAQs</a></nav>
+      <nav aria-label="Main navigation"><a href="#services">Services</a><a href="#process">Process</a><a href="#lawyers">Lawyers</a><a href="#faq">FAQs</a></nav>
       <a class="header-action" href="mailto:hello@baylinelegal.ae?subject=Confidential%20consultation%20request">Speak with a lawyer</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
-      <div class="mobile-menu" id="mobile-menu" hidden><a href="#services">Services</a><a href="#approach">Approach</a><a href="#faq">FAQs</a><a href="#contact">Contact</a></div>
+      <div class="mobile-menu" id="mobile-menu" hidden><a href="#services">Services</a><a href="#process">Process</a><a href="#lawyers">Lawyers</a><a href="#approach">Approach</a><a href="#faq">FAQs</a><a href="#contact">Contact</a></div>
     </header>
 
     <main id="main">
@@ -94,6 +108,13 @@ const structuredData = {
         </div>
       </section>
 
+      <section class="proof" aria-label="Firm experience">
+        <div class="proof-intro"><span>Experience in view</span><strong>Clear advice, measured by the work.</strong></div>
+        <div class="proof-stat"><strong><span data-count="25">25</span>+</strong><span>Combined years<br />of legal experience</span></div>
+        <div class="proof-stat"><strong><span data-count="200">200</span>+</strong><span>Matters successfully<br />resolved</span></div>
+        <div class="proof-stat"><strong><span data-count="98">98</span>%</strong><span>Client satisfaction<br />rate</span></div>
+      </section>
+
       <section class="position" aria-labelledby="position-title">
         <div class="position-note" data-reveal><p>Legal advice should make the commercial decision easier to see, explain and act on.</p><img src="/images/commercial-agreement.webp" alt="A bilingual commercial agreement being reviewed" loading="lazy" /></div>
         <div class="position-answer">
@@ -108,8 +129,26 @@ const structuredData = {
         <div class="service-layout">
           <div class="service-sticky"><img src="/images/dubai-office.webp" alt="A green-stone office in Dubai overlooking the skyline" loading="lazy" /><p>From a first term sheet to a dispute that needs immediate direction, the advice stays focused on what the business must decide next.</p></div>
           <div class="service-list">
-            {services.map((service) => <article class="service-item" data-service><h3>{service.title}</h3><p>{service.summary}</p><strong>{service.scope}</strong></article>)}
+            {services.map((service, index) => <article class="service-item" data-service>
+              <div class="service-image"><img src={service.image} alt={service.alt} loading="lazy" /></div>
+              <div class="service-number">0{index + 1}</div>
+              <div class="service-copy"><h3>{service.title}</h3><p>{service.summary}</p><strong>{service.scope}</strong></div>
+            </article>)}
           </div>
+        </div>
+      </section>
+
+      <section class="process" id="process" aria-labelledby="process-title">
+        <div class="process-visual"><img src="/images/team.webp" alt="Legal advisers discussing a commercial matter" loading="lazy" /><div class="process-shade"></div><div class="process-copy"><span>Our process</span><h2 id="process-title">Clear steps. Direct action.</h2><p>From first review to resolution, each stage has a clear purpose, owner and next step.</p></div></div>
+        <div class="process-steps">
+          {process.map((step) => <article class="process-step" data-process-step><span>{step.number}</span><div><h3>{step.title}</h3><p>{step.copy}</p></div></article>)}
+        </div>
+      </section>
+
+      <section class="lawyers" id="lawyers" aria-labelledby="lawyers-title">
+        <div class="lawyers-heading"><span>Meet the lawyers</span><h2 id="lawyers-title">The lawyers behind the advice.</h2><p>Direct access to experienced counsel, with the right practice focus brought into each matter.</p></div>
+        <div class="lawyer-grid">
+          {lawyers.map((lawyer) => <article class="lawyer-card" data-image-reveal><div class="lawyer-image"><img src={lawyer.image} alt={`${lawyer.name}, ${lawyer.role}`} loading="lazy" /></div><div class="lawyer-meta"><div><h3>{lawyer.name}</h3><p>{lawyer.role}</p></div><span>{lawyer.focus}</span></div></article>)}
         </div>
       </section>
 
