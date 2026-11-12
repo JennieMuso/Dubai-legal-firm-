@@ -81,7 +81,7 @@ h1, h2, h3 { font-weight: 500; letter-spacing: -.055em; line-height: .94; text-w
 .services-intro h2 { max-width: 11ch; font-size: clamp(3rem, 5vw, 4rem); }
 .services-intro p { max-width: 28rem; padding-bottom: .6rem; font-size: 1.15rem; }
 .service-bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: 34rem; gap: 1.25rem; }
-.service-item { position: relative; min-height: 0; overflow: hidden; background: var(--green); color: var(--white); transform-origin: center; }
+.service-item { position: relative; display: block; min-height: 0; overflow: hidden; background: var(--green); color: var(--white); transform-origin: center; }
 .service-item:nth-child(1), .service-item:nth-child(4) { grid-column: span 7; grid-row: auto; }
 .service-item:nth-child(2), .service-item:nth-child(3) { grid-column: span 5; grid-row: auto; }
 .service-item:nth-child(3) { grid-column: 1 / span 5; }
@@ -94,9 +94,9 @@ h1, h2, h3 { font-weight: 500; letter-spacing: -.055em; line-height: .94; text-w
 .service-item h3 { max-width: 13ch; font-size: clamp(2.5rem, 4vw, 4rem); }
 .service-copy > p { max-width: 35rem; margin-top: 1.5rem; font-size: clamp(1.02rem, 1.35vw, 1.2rem); }
 .service-link { position: absolute; right: 1.5rem; bottom: 1.5rem; z-index: 3; display: grid; width: 3.5rem; height: 3.5rem; place-items: center; background: var(--white); color: var(--forest); font-size: 1.35rem; transition: transform .25s var(--ease); }
-.service-link:hover, .service-link:focus-visible, .service-link:active { background: var(--green); color: var(--white); }
-.service-link:hover, .service-link:focus-visible { transform: translateY(-3px); }
-.service-link:active { transform: translateY(0) scale(.96); }
+.service-item:hover .service-link, .service-item:focus-visible .service-link, .service-item:active .service-link { background: var(--green); color: var(--white); }
+.service-item:hover .service-link, .service-item:focus-visible .service-link { transform: translateY(-3px); }
+.service-item:active .service-link { transform: translateY(0) scale(.96); }
 .service-copy { padding-right: 6.5rem; }
 
 .process { display: grid; grid-template-columns: 1.08fr .92fr; min-height: 46rem; padding: var(--pad); gap: 1rem; background: #0b0e0d; color: var(--white); }
@@ -273,7 +273,12 @@ footer { padding: 5rem var(--pad) 2rem; overflow: hidden; background: var(--fore
   .contact h2 { max-width: 100%; font-size: clamp(3.2rem, 13vw, 5rem); }
   .footer-lead, .footer-meta { flex-direction: column; }
   .footer-columns { grid-template-columns: 1fr 1fr; gap: 3rem 2rem; }
-  .footer-name { margin-top: 6rem; font-size: 25vw; }
+  .footer-name { width: 100%; margin-top: 6rem; font-size: clamp(5rem, 17vw, 10rem); letter-spacing: -.09em; transform: none; }
+}
+
+@media (max-width: 650px) {
+  .lawyer-grid { grid-template-columns: 1fr; }
+  .lawyer-card { aspect-ratio: 3 / 4; }
 }
 
 @media (max-width: 560px) {
@@ -282,8 +287,6 @@ footer { padding: 5rem var(--pad) 2rem; overflow: hidden; background: var(--fore
   .proof > *, .proof > *:nth-child(3) { min-height: 10rem; border-right: 0; }
   .proof-stat { flex-direction: row; align-items: end; }
   .proof-stat > span { text-align: right; }
-  .lawyer-grid { grid-template-columns: 1fr; }
-  .lawyer-card { aspect-ratio: 3 / 4; }
   .testimonials-heading { grid-template-columns: 1fr; }
   .carousel-controls { grid-column: 1; grid-row: auto; }
   .testimonials-heading > p { grid-column: 1; grid-row: auto; }

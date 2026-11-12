@@ -136,11 +136,11 @@ const structuredData = {
       <section class="services" id="services" aria-labelledby="services-title">
         <div class="services-intro"><h2 id="services-title">Business law.<br />Dubai focus.</h2><p>Connected advice for the contracts, relationships, property and people behind a business.</p></div>
         <div class="service-bento">
-            {services.map((service) => <article class="service-item" data-service>
+            {services.map((service) => <a class="service-item" href={`/practice-areas/${service.slug}/`} aria-label={`Explore ${service.title}`} data-service>
               <img class="service-image" src={service.image} alt={service.alt} loading="lazy" />
               <div class="service-copy"><strong>{service.scope}</strong><h3>{service.title}</h3><p>{service.summary}</p></div>
-              <a class="service-link" href={`/practice-areas/${service.slug}/`} aria-label={`Explore ${service.title}`}><svg class="action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M7 5h8v8" /></svg></a>
-            </article>)}
+              <span class="service-link" aria-hidden="true"><svg class="action-icon" viewBox="0 0 20 20"><path d="M5 15 15 5M7 5h8v8" /></svg></span>
+            </a>)}
         </div>
       </section>
 
